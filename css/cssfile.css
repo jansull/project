@@ -131,10 +131,32 @@ section{
     height: 1000px;
 }
 .middle_img{
-    width: 100%;
-    height: 280px;
+    width: 1500px;
+    height: 400px;
     margin: 0 auto;
+    overflow: hidden;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 0;
 }
+.middle_img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 0;
+    background-size: cover;
+    /* border-radius: 40px; */
+}
+
+.middle_index {
+    width: 100%;
+    height: 130px;
+    background-color: lightsalmon;
+}
+
 .middle_list{
     width: 1500px;
     height: 1000px;
@@ -166,15 +188,6 @@ section{
         width: 100%;
         height: 25%;
     }
-}
-.middle_img img{
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-	/* border-radius: 40px; */
-    transform: translate(0%, 0%);
-    position: relative;
-    z-index: 0;
 }
 
 
