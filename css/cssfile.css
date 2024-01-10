@@ -225,11 +225,7 @@ section{
       .menu-trigger span:nth-of-type(3) {
         bottom: 0;
       }
-      
-      
-      
-      
-      
+
       .hidden_hambeger{
         width: 100%;
         height: 100%;
@@ -253,12 +249,15 @@ section{
       .hidden_hambeger_menubar>a>img{
         width: 50px;
         margin-left: 230px;
+        
       }
       
       
 }
 
-
+.hidden_hambeger_menubar>a{
+    display: none;
+}
 .middle_content{
     background-color: aqua;
     grid-column: 1 / 2;

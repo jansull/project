@@ -124,7 +124,7 @@ $(function(){
         hamburger_menu_bar.css('display', 'block').animate({
             right: 0
         }, 300);
-
+        burger_close.css('display','block');
         e.preventDefault();
         $(this).toggleClass('active');
     });
