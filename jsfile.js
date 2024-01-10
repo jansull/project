@@ -1,4 +1,5 @@
 $(function(){
+    
     var $menu_1 = $('.menu_1'),
         $hidden_bar_1 = $('.hidden_bar_1'),
         $header = $('header'),
@@ -103,5 +104,51 @@ $(function(){
         }
     });
 
+
+
+    var burger = $('.menu-trigger');
+    var burger_close = $('.menu-trigger_close');
+    var hamburger_menu = $('.hidden_hambeger');
+    var hamburger_menu_bar = $('.hidden_hambeger_menubar');
+
+    burger.on('click', function(e) {
+        $('.all').css({
+            'overflow': 'hidden',
+            'height': '100%',
+        });
+
+        hamburger_menu.css('display', 'block').animate({
+            right: 0
+        }, 300);
+
+        hamburger_menu_bar.css('display', 'block').animate({
+            right: 0
+        }, 300);
+
+        e.preventDefault();
+        $(this).toggleClass('active');
+    });
+
+    burger_close.on('click', function(e) {
+        $('.all').css({
+            'overflow': 'auto',
+            'height': 'auto',
+        });
+
+        hamburger_menu.animate({
+            right: '-280px'
+        }, 300, function() {
+            $(this).css('display', 'none');
+        });
+
+        hamburger_menu_bar.animate({
+            right: '-280px'
+        }, 300, function() {
+            $(this).css('display', 'none');
+        });
+
+        e.preventDefault();
+    });
+    
     
 });
