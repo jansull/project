@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .tab-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 15px 20px;
+      margin: 0 5px;
+      background-color: #ddd;
+      border: 1px solid #ccc;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .tab:hover {
+      background-color: #ccc;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 0 0 5px 5px;
+      width: 300px;
+      background-color: #fff;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="tab-container">
+  <div class="tab" onclick="openTab('tab1')">탭 1</div>
+  <div class="tab" onclick="openTab('tab2')">탭 2</div>
+  <div class="tab" onclick="openTab('tab3')">탭 3</div>
+</div>
+
+<div id="tab1" class="tab-content active">
+  <h2>탭 1 컨텐츠</h2>
+  <p>이곳에 탭 1의 내용이 들어갑니다.</p>
+</div>
+
+<div id="tab2" class="tab-content">
+  <h2>탭 2 컨텐츠</h2>
+  <p>이곳에 탭 2의 내용이 들어갑니다.</p>
+</div>
+
+<div id="tab3" class="tab-content">
+  <h2>탭 3 컨텐츠</h2>
+  <p>이곳에 탭 3의 내용이 들어갑니다.</p>
+</div>
+
+<script>
+  function openTab(tabName) {
+    // 모든 탭 숨기기
+    var tabs = document.getElementsByClassName('tab-content');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].style.display = 'none';
+    }
+
+    // 선택한 탭 보이기
+    document.getElementById(tabName).style.display = 'block';
+
+    // 활성 탭 표시를 위해 모든 탭에 active 클래스 제거
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove('active');
+    }
+
+    // 선택한 탭에 active 클래스 추가
+    document.getElementById(tabName).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
