@@ -44,7 +44,7 @@ header {
     height: 380px;
     display: grid;
     grid-template-columns: 2fr 200px 3fr 400px 2fr;
-    grid-template-rows: 20px 100px;
+    grid-template-rows: 20px 80px;
 }
 
 .top_left_index {
@@ -57,6 +57,12 @@ header {
     grid-column : 4 / 5;
     grid-row : 1 / 2;
     background-color: orange;
+}
+.top_ui {
+    width:30%;
+    height:100%;
+    float: right;
+    background-color: darkolivegreen;
 }
 
 .top_right_index {
@@ -76,6 +82,14 @@ header {
     grid-row : 2 / 3;
     background-color: blue;
 }
+.menu_logo > img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    /* position: relative; */
+    /* z-index: 0; */
+    /* background-size: cover; */
+}
 
 .menu_middle_index {
     grid-column : 3 / 4;
@@ -87,6 +101,18 @@ header {
     grid-column : 4 / 5;
     grid-row : 2 / 3;
     background-color: purple;
+}
+.first_menu{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+.menu_1, .menu_2, .menu_3, .menu_4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
 .menu_right_index {
@@ -103,9 +129,6 @@ header {
     float: left;
 }
 
-.logo > img {
-    width: 200px;
-}
 .menu_bar {
     width: 60%;
     height: 80px;
@@ -118,12 +141,6 @@ header {
     display: flex;
     justify-content: flex-end;
 } */
-
-.menu_1, .menu_2, .menu_3, .menu_4 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .first_menu > li {
     float: left;
@@ -181,7 +198,7 @@ section{
     margin: 0 auto;
     overflow: hidden;
     position: absolute;
-    top: 120px;
+    top: 100px;
     left: 50%;
     transform: translate(-50%, 0%);
     z-index: 0;
