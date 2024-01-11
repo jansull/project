@@ -342,8 +342,8 @@ section{
         height: 25%;
     }
     .menu-trigger {
-        margin-right: 70px;
-        margin-top: 50px;
+        margin-left: 200px;
+        margin-top: 40px;
       }
       .menu-trigger,
       .menu-trigger span {
