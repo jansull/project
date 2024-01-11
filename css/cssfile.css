@@ -15,7 +15,7 @@ a {
     margin: 0 auto;
 }
 
-.top_menu {
+/* .top_menu {
     width: 100%;
     height: 20px;
     background-color: gray;
@@ -29,7 +29,7 @@ a {
     align-items: center;
     margin: 0 auto;
     justify-content: flex-end;
-}
+} */
 
 
 header {
@@ -37,16 +37,66 @@ header {
     height: 380px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
 }
-.front_bar {
-    width: 1500px;
-    height:100px;
-    background-color: cornflowerblue;
-    display: flex;
-    align-items: center;
+/* --- */
+.header_container {
+    width: 100%;
+    height: 380px;
+    display: grid;
+    grid-template-columns: 2fr 200px 3fr 400px 2fr;
+    grid-template-rows: 20px 100px;
 }
-.logo {
+
+.top_left_index {
+    grid-column : 1 / 4;
+    grid-row : 1 / 2;
+    background-color: red;
+}
+
+.top_menu {
+    grid-column : 4 / 5;
+    grid-row : 1 / 2;
+    background-color: orange;
+}
+
+.top_right_index {
+    grid-column : 5 / 6;
+    grid-row : 1 / 2;
+    background-color: yellow;
+}
+
+.menu_left_index {
+    grid-column : 1 / 2;
+    grid-row : 2 / 3;
+    background-color: green;
+}
+
+.menu_logo {
+    grid-column : 2 / 3;
+    grid-row : 2 / 3;
+    background-color: blue;
+}
+
+.menu_middle_index {
+    grid-column : 3 / 4;
+    grid-row : 2 / 3; 
+    background-color: darkblue;
+}
+
+.menu_bar {
+    grid-column : 4 / 5;
+    grid-row : 2 / 3;
+    background-color: purple;
+}
+
+.menu_right_index {
+    grid-column : 5 / 6;
+    grid-row : 2 / 3;
+    background-color: gray;
+}
+/* --- */
+
+/* .menu_logo {
     width: 40%;
     height: 80px;
     background-color: pink;
@@ -67,12 +117,7 @@ header {
     height: 80px;
     display: flex;
     justify-content: flex-end;
-}
-.menu0 {
-    width:10%;
-    height: 100%;
-    background-color: brown;
-}
+} */
 
 .menu_1, .menu_2, .menu_3, .menu_4 {
     display: flex;
