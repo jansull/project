@@ -16,6 +16,7 @@ $(function(){
         
         // 특정 hidden_bar 보이게 하기
         $hiddenBarToShow.show().animate({ height: '300px' }, 200);
+        $hiddenBarToShow.css('display', 'grid');
     }
 
     function hideHiddenBar($hiddenBarToHide) {
@@ -25,17 +26,17 @@ $(function(){
     }
 
     $menu_1.mouseenter(function() {
-        if($hidden_bar_2.css('display') === 'block'){
+        if($hidden_bar_2.css('display') === 'grid'){
             $hidden_bar_2.css('display', 'none');
-            $hidden_bar_1.css('display', 'block');
+            $hidden_bar_1.css('display', 'grid');
             $hidden_bar_1.css('height','300px');
-        }else if($hidden_bar_3.css('display') === 'block'){
+        }else if($hidden_bar_3.css('display') === 'grid'){
             $hidden_bar_3.css('display', 'none');
-            $hidden_bar_1.css('display', 'block');
+            $hidden_bar_1.css('display', 'grid');
             $hidden_bar_1.css('height','300px');
-        }else if($hidden_bar_4.css('display') === 'block'){
+        }else if($hidden_bar_4.css('display') === 'grid'){
             $hidden_bar_4.css('display', 'none');
-            $hidden_bar_1.css('display', 'block');
+            $hidden_bar_1.css('display', 'grid');
             $hidden_bar_1.css('height','300px');
         } else {
             showHiddenBar($(this), $hidden_bar_1);
@@ -50,17 +51,17 @@ $(function(){
     });
 
     $menu_2.mouseenter(function() {
-        if($hidden_bar_1.css('display') === 'block'){
+        if($hidden_bar_1.css('display') === 'grid'){
             $hidden_bar_1.css('display', 'none');
-            $hidden_bar_2.css('display', 'block');
+            $hidden_bar_2.css('display', 'grid');
             $hidden_bar_2.css('height','300px');
-        }else if($hidden_bar_3.css('display') === 'block'){
+        }else if($hidden_bar_3.css('display') === 'grid'){
             $hidden_bar_3.css('display', 'none');
-            $hidden_bar_2.css('display', 'block');
+            $hidden_bar_2.css('display', 'grid');
             $hidden_bar_2.css('height','300px');
-        }else if($hidden_bar_4.css('display') === 'block'){
+        }else if($hidden_bar_4.css('display') === 'grid'){
             $hidden_bar_4.css('display', 'none');
-            $hidden_bar_2.css('display', 'block');
+            $hidden_bar_2.css('display', 'grid');
             $hidden_bar_2.css('height','300px');
         } else {
             showHiddenBar($(this), $hidden_bar_2);
@@ -69,17 +70,17 @@ $(function(){
     });
 
     $menu_3.mouseenter(function() {
-        if($hidden_bar_2.css('display') === 'block'){
+        if($hidden_bar_2.css('display') === 'grid'){
             $hidden_bar_2.css('display', 'none');
-            $hidden_bar_3.css('display', 'block');
+            $hidden_bar_3.css('display', 'grid');
             $hidden_bar_3.css('height','300px');
-        }else if($hidden_bar_1.css('display') === 'block'){
+        }else if($hidden_bar_1.css('display') === 'grid'){
             $hidden_bar_1.css('display', 'none');
-            $hidden_bar_3.css('display', 'block');
+            $hidden_bar_3.css('display', 'grid');
             $hidden_bar_3.css('height','300px');
-        }else if($hidden_bar_4.css('display') === 'block'){
+        }else if($hidden_bar_4.css('display') === 'grid'){
             $hidden_bar_4.css('display', 'none');
-            $hidden_bar_3.css('display', 'block');
+            $hidden_bar_3.css('display', 'grid');
             $hidden_bar_3.css('height','300px');
         } else {
             showHiddenBar($(this), $hidden_bar_3);
@@ -87,17 +88,17 @@ $(function(){
     });
 
     $menu_4.mouseenter(function() {
-        if($hidden_bar_2.css('display') === 'block'){
+        if($hidden_bar_2.css('display') === 'grid'){
             $hidden_bar_2.css('display', 'none');
-            $hidden_bar_4.css('display', 'block');
+            $hidden_bar_4.css('display', 'grid');
             $hidden_bar_4.css('height','300px');
-        }else if($hidden_bar_3.css('display') === 'block'){
+        }else if($hidden_bar_3.css('display') === 'grid'){
             $hidden_bar_3.css('display', 'none');
-            $hidden_bar_4.css('display', 'block');
+            $hidden_bar_4.css('display', 'grid');
             $hidden_bar_4.css('height','300px');
-        }else if($hidden_bar_1.css('display') === 'block'){
+        }else if($hidden_bar_1.css('display') === 'grid'){
             $hidden_bar_1.css('display', 'none');
-            $hidden_bar_4.css('display', 'block');
+            $hidden_bar_4.css('display', 'grid');
             $hidden_bar_4.css('height','300px');
         } else {
             showHiddenBar($(this), $hidden_bar_4);
