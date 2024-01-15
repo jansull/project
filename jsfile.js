@@ -188,6 +188,9 @@ burger_close.on('click', function (e) {
         $('#tapGroup_2').css('display', 'none');
         $('#tapGroup_3').css('display', 'block');
     });
+    
+
+    
     function handleResize() {
         // 화면 너비가 800px 이하이면 이미지 숨기기
         if ($(window).width() <= 800) {
