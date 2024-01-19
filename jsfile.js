@@ -190,6 +190,25 @@ burger_close.on('click', function (e) {
     });
     
 
+    $('.program').on('click',function(){
+        event.preventDefault();
+        $('#middle_content_1').css('display', 'block');
+        $('#middle_content_2').css('display', 'none');
+        $('#middle_content_3').css('display', 'none');
+    });
+    $('.book').on('click',function(){
+        event.preventDefault();
+        $('#middle_content_1').css('display', 'none');
+        $('#middle_content_2').css('display', 'block');
+        $('#middle_content_3').css('display', 'none');
+    });
+    $('.files').on('click',function(){
+        event.preventDefault();
+        $('#middle_content_1').css('display', 'none');
+        $('#middle_content_2').css('display', 'none');
+        $('#middle_content_3').css('display', 'block');
+    });
+
     
     function handleResize() {
         // 화면 너비가 800px 이하이면 이미지 숨기기
