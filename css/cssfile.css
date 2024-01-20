@@ -191,6 +191,7 @@ header {
 section{
     width: 100%;
     height: 1000px;
+    
 }
 .middle_img{
     width: 1500px;
@@ -226,7 +227,8 @@ section{
     display: grid;
     grid-template-columns: 1fr 0.7fr;
     grid-template-rows: 1fr 1fr;
-    background-color: gray;
+    
+    
 }
 
 
@@ -271,14 +273,44 @@ section{
   }
 
 .middle_content{
-    background-color: aqua;
+    /* background-color: aqua; */
     grid-column: 1 / 2;
-	grid-row: 1 / 2;
+	grid-row: 1 / 2;  
+    
+    background-color: rgba(92, 90, 90, 0.147);
 }
+.middle_content>h2{
+    border-bottom: 3px gray solid;
+    padding-bottom: 10px;
+}
+.program {
+    border-bottom: solid gray 0px;
+    transition: border-bottom 0.1s; /* 애니메이션 지속 시간을 조절할 수 있습니다. */
+}
+
+.program:hover {
+    border-bottom: solid gray 3px;
+}
+.book {
+    border-bottom: solid gray 0px;
+    transition: border-bottom 0.1s; /* 애니메이션 지속 시간을 조절할 수 있습니다. */
+}
+
+.book:hover {
+    border-bottom: solid gray 3px;
+}
+.files {
+    border-bottom: solid gray 0px;
+    transition: border-bottom 0.1s; /* 애니메이션 지속 시간을 조절할 수 있습니다. */
+}
+
+.files:hover {
+    border-bottom: solid gray 3px;
+}
+
 .content_div{
     max-width: 100%;
     height: 400px;
-    background-color: red;
     position: relative;
 }
 .content_div a{
@@ -313,19 +345,24 @@ section{
     display: none;
 }
 .middle_map{
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     grid-column: 1 / 2;
 	grid-row: 2 / 3;
 }
 .middle_notice{
-    background-color: red;
+    /* background-color: red; */
     grid-column: 2 / 3;
 	grid-row: 1 / 2;
+    margin-left: 30px;
+    
+}
+.middle_notice>h2{
+    border-bottom: solid gray 3px;
 }
 .middle_notice li{
     width: 100%;
     height: 130px;
-    background-color: white;
+    /* background-color: white; */
     border-bottom: 1px solid gray;
 }
 .map{
@@ -334,29 +371,32 @@ section{
     margin-left: 30px;
 }
 .middle_guide{
-    background-color: yellow;
+    /* background-color: yellow; */
     grid-column: 2 / 3;
 	grid-row: 2 / 3;
+    border-bottom: solid gray 5px;
+    margin-left: 30px;
+    
 }
 .middle_guide img{
     width: 160px;
     margin-left: 100px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 footer{
     width: 100%;
     height: 300px;
-    background-color: gray;
+    /* background-color: gray; */
     
 }
 .footer_main{
     height: 300px;
-    background-color: rgb(72, 112, 160);
+    /* background-color: rgb(72, 112, 160); */
 }
 .f_up{
     height: 200px;
-    background-color: red;
+    background-color: rgb(66, 66, 66);
 }
 .inner{
     width: 1500px;
@@ -374,7 +414,7 @@ footer{
 
 .f_down{
     height: 100px;
-    background-color: black;
+    background-color: rgb(42, 42, 42);
 }
 .f_down_1{
     width: 1500px;
@@ -444,7 +484,7 @@ footer{
     }
     .middle_content,.middle_map,
     .middle_notice,.middle_guide{
-
+        margin-left: 0px;
         width: 100%;
         height: 25%;
     }
