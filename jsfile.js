@@ -20,7 +20,7 @@ $(function(){
     }
 
     function hideHiddenBar($hiddenBarToHide) {
-        $hiddenBarToHide.stop().animate({ height: '80px' }, 400, function() {
+        $hiddenBarToHide.clearQueue().stop().animate({ height: '80px' }, 400, function() {
             $(this).hide();
         });
     }
