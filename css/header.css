@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+   }
+
+body,ul, li, h1 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.all{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* .top_menu {
+    width: 100%;
+    height: 20px;
+    background-color: gray;
+    float: left;
+    text-align: right;
+}
+.top_ul{
+    width: 1500px;
+    height:20px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: flex-end;
+} */
+
+
+header {
+    width: 100%;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+}
+/* --- */
+.header_container {
+    width: 100%;
+    height: 380px;
+    display: grid;
+    grid-template-columns: 2fr 200px 3fr 400px 2fr;
+    grid-template-rows: 20px 80px 270px;
+}
+
+.top_left_index {
+    grid-column : 1 / 4;
+    grid-row : 1 / 2;
+    background-color: gray;
+}
+
+.top_menu {
+    grid-column : 4 / 5;
+    grid-row : 1 / 2;
+    background-color: gray;
+}
+.top_ui {
+    width:30%;
+    height:100%;
+    float: right;
+    background-color: gray;
+}
+
+.top_right_index {
+    grid-column : 5 / 6;
+    grid-row : 1 / 2;
+    background-color: gray;
+}
+
+.menu_left_index {
+    grid-column : 1 / 2;
+    grid-row : 2 / 3;
+    /* background-color: green; */
+}
+
+.menu_logo {
+    grid-column : 2 / 3;
+    grid-row : 2 / 3;
+    /* background-color: blue; */
+}
+.menu_logo > img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    /* position: relative; */
+    /* z-index: 0; */
+    /* background-size: cover; */
+}
+
+.menu_middle_index {
+    grid-column : 3 / 4;
+    grid-row : 2 / 3; 
+    /* background-color: darkblue; */
+}
+
+.menu_bar {
+    grid-column : 4 / 5;
+    grid-row : 2 / 3;
+    /* background-color: purple; */
+}
+.first_menu{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.first_menu > li {
+    width: 100px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.first_menu > li:hover, .top_main:hover, .top_sub:hover {
+    background-color: #ced4da;
+}
+
+.menu_right_index {
+    grid-column : 5 / 6;
+    grid-row : 2 / 3;
+    /* background-color: gray; */
+}
+
+.hb {
+    grid-column : 1 / 6;
+    grid-row : 3 / 4;
+    z-index: 1;
+    grid-template-columns: 2fr 200px 3fr 400px 2fr;
+    grid-template-rows: 300px 150px;
+    background-color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.hb > ul {
+    grid-column : 2 / 5;
+    grid-row : 1 / 2;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 4fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.down_bar_logo1 {
+    grid-column : 1 / 2;
+    grid-row : 1 / 3;
+    background-color: #ced4da;
+    position : relative;
+    font-family: 'NanumBarunGothic';
+    
+}
+.logo_text_main > a {
+    display: inline-block;
+    font-size: 35px;
+    padding: 20px 0 0 20px;
+    /* background-color: red; */
+}
+.logo_text_sub {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px 0 0 20px;
+    /* background-color: paleturquoise; */
+}
+
+.logo_image {
+    width:200px;
+    height: 165px;
+    /* background-color: blue; */
+    position : absolute;
+    bottom : 0;
+}
+.logo_image > img {
+    width:100%;
+    height:80%;
+    object-fit: cover;
+    margin-top: 35px;
+
+}
+
+.hb > ul > li {
+    margin: 5px;
+}
+/* 상단바 글씨 */
+.hb > ul > li > a {
+    margin: 3px;
+    padding: 0 0 5px 20px;
+    display: block;
+    font-size: 18px;
+    font-family: 'NanumBarunGothic';
+}
+.top_main {
+    border-bottom: 1px solid black;
+}
+.top_sub {
+    border-bottom: 1px solid #dee2e6;
+}
+/* --- */
