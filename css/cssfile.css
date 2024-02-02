@@ -23,6 +23,19 @@
     font-weight: normal;
     font-style: normal;
 }
+ul, ol, dl, div, dd, dt, li, p, h4, h5 {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Noto Sans', "맑은 고딕","Malgun Gothic","돋움",Dotum, sans-serif;
+    color: #333;
+    line-height: 1.7;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+    word-break: break-all;
+}
 *, :after, :before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -114,7 +127,7 @@ header {
     grid-row : 2 / 3;
     /* background-color: blue; */
 }
-.menu_logo > img {
+.menu_logo a img {
     width: 100%;
     height: 80%;
     object-fit: cover;
@@ -205,8 +218,7 @@ header {
 }
 
 .logo_image {
-    width:200px;
-    height: 165px;
+    width: 100px;
     /* background-color: blue; */
     position : absolute;
     bottom : 0;
@@ -227,7 +239,7 @@ header {
     margin: 3px;
     padding: 0 0 5px 20px;
     display: block;
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'NanumBarunGothic';
 }
 .top_main {
@@ -244,36 +256,73 @@ header {
     position: absolute;
     right: -280px;
     z-index: 1;
+    font-family: "NanumBarunGothic";
   }
 .hidden_hambeger_menubar{
     width: 280px;
     height: 100%;
-    background-color: darkblue;
+    background-color: white;
     display: none;
     position: absolute;
     right: -280px;
     opacity: 1;
     z-index: 2;
   }
+  .menu-trigger_close{
+    width: 100%;
+    height: 60px;
+  }
+  .menu-trigger_close>a>img{
+    width: 30px;
+    margin-left: 60px;
+  }
   .hidden_hambeger_menubar>a>img{
-    width: 50px;
-    margin-left: 230px;
-    
+    width: 100%;
   }
   .h_h_header{
     width: 280px;
     height: 10%;
-    background-color: red;
+  }
+  .h_h_header img{
+    width: 200px;
   }
   .h_h_ul{
     width: 280px;
     height: 70%;
-    background-color: beige;
+    
+  }
+  .h_h_ul>li{
+    width: 100%;
+    height: 50px;
+    
+  }
+  .h_h_ul_a{
+    font-size: 25px;
+  }
+  .h_pro{
+    height: 50px;
+    
+  }
+  .h_pro_a{
+    float: right;
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  .h_pro_a2{
+    display: none;
+    float: right;
+    font-size: 30px;
+    margin-right: 14px;
+  }
+  .h_pro_ul{
+    display: none;
+  }
+  .h_pro_ul a{
+    font-size: 20px;
   }
   .h_h_footer{
     width: 280px;
     height: 20%;
-    background-color: black;
   }
 
 .bnanner{
@@ -334,7 +383,7 @@ header {
     position: absolute;
     top: 100px;
     left: 50%;
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, 70%);
     z-index: 0;
     font-family: "SOYOMapleBoldTTF";
     text-align: center;
@@ -343,9 +392,10 @@ header {
     
 }
 .bnanner > img {
-    width: 100%;
+    width: 1920px;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     position: absolute;
     z-index: 0;
     /* border-radius: 40px; */
@@ -452,7 +502,7 @@ section{
     grid-column: 1 / 2;
 	grid-row: 2 / 3;
 }
-.middle_notice{
+.middle_gallery{
     /* background-color: red; */
     grid-column: 2 / 3;
 	grid-row: 1 / 2;
@@ -461,15 +511,18 @@ section{
     background-color: rgba(92, 90, 90, 0.147);
     
 }
-.middle_notice>h2{
+.middle_gallery>h2{
     border-bottom: 3px gray solid;
     padding-bottom: 10px;
 }
-.middle_notice li{
+.middle_gallery li{
     width: 100%;
     height: 130px;
     /* background-color: white; */
     border-bottom: 1px solid gray;
+}
+.middle_gallery img{ 
+    width: 100%;
 }
 .map{
     width: 95%;
@@ -721,10 +774,11 @@ footer{
         display: flex;
         flex-direction: column;
     }
-    .middle_content,.middle_map,
-    .middle_notice,.middle_guide{
+    .middle_content,
+    .middle_gallery{
         margin-left: 0px;
         width: 100%;
+        margin-top: 20px;
         
     }
       .menu-trigger,
@@ -777,7 +831,6 @@ footer{
       .hidden_hambeger_menubar{
         width: 280px;
         height: 100%;
-        background-color: darkblue;
         display: none;
         position: absolute;
         right: -280px;
@@ -785,9 +838,7 @@ footer{
         z-index: 2;
       }
       .hidden_hambeger_menubar>a>img{
-        width: 40px;
-        margin-left: 230px;
-        margin-top: 10px;
+        
       }
       .middle_guide img{
         width: 100px;
@@ -813,18 +864,17 @@ footer{
         display: block;
         width: 100vw;
         height: 100px;
-        background-color: red;
     }
    
     .mobbile_logo img{
         width: 200px;
-        margin-left: 20px;
+        margin: 10px;
     }
    
     .mobile_hame img{
         width: 50px;
         margin-left: 45vw;
-        margin-top: -50px;
+        margin-top: -65px;
     }
     .program_container li{
         float: left;

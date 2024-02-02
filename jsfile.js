@@ -319,4 +319,17 @@ function nextSlide() {
     $(".prev").click(function() {
         prevSlide();
     });
+    $(".h_pro_a").click(function(){
+        event.preventDefault();
+        $(".h_pro").animate({height: '300px'}, 500); // 500은 애니메이션 지속 시간 (밀리초)
+        $(".h_pro_a").css('display','none');
+        $(".h_pro_a2").css('display','block');
+        $(".h_pro_ul").css('display','block');
+    });
+    $(".h_pro_a2").click(function(){
+        event.preventDefault();
+        $(".h_pro").animate({height: '50px'}, 500);
+        $(".h_pro_a2").css('display','none');
+        $(".h_pro_a").css('display','block');
+    });
 });
