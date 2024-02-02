@@ -422,7 +422,6 @@ section{
     display: grid;
     grid-template-columns: 1fr 0.7fr;
     grid-template-rows: 1fr ; 
-    
 }
 
 .middle_content{
