@@ -22,6 +22,12 @@ ul, ol, dl, div, dd, dt, li, p, h4, h5 {
 /* article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
 } */
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*{margin: 0;padding: 0;}
 
 body,ul, li, h1 {
     margin: 0;
@@ -68,7 +74,7 @@ header {
     width: 100%;
     height: 380px;
     display: grid;
-    grid-template-columns: 2fr 200px 3fr 400px 2fr;
+    grid-template-columns: 2fr 200px 3fr 700px 2fr;
     grid-template-rows: 20px 80px 270px;
 }
 
@@ -107,7 +113,7 @@ header {
     grid-row : 2 / 3;
     /* background-color: blue; */
 }
-.menu_logo > img {
+.menu_logo a img {
     width: 100%;
     height: 80%;
     object-fit: cover;
@@ -162,6 +168,7 @@ header {
     background-color: white;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    display: none;
 }
 .hb > ul {
     grid-column : 2 / 5;
@@ -194,8 +201,7 @@ header {
 }
 
 .logo_image {
-    width:200px;
-    height: 165px;
+    width: 100px;
     /* background-color: blue; */
     position : absolute;
     bottom : 0;
@@ -216,7 +222,7 @@ header {
     margin: 3px;
     padding: 0 0 5px 20px;
     display: block;
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'NanumBarunGothic';
 }
 .top_main {
@@ -262,6 +268,22 @@ header {
     
     /* border-radius: 40px; */
 }
+/*상단 사진 글씨*/
+.middle_img_text{
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 120%);
+    z-index: 0;
+    font-family: "SOYOMapleBoldTTF";
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    
+}
 
 /* 상단 주소 관련 */
 #container {
@@ -300,7 +322,7 @@ header {
 .side {
     float: left;
     position: relative;
-    z-index: 30;
+    z-index: 2;
     width: 250px;
     margin-top: 50px;
     margin-bottom: 80px;
@@ -511,22 +533,29 @@ footer{
     display: none;
     position: absolute;
     right: -280px;
-    z-index: 1;
+    z-index: 3;
+    font-family: "NanumBarunGothic";
   }
-.hidden_hambeger_menubar{
+  .hidden_hambeger_menubar{
     width: 280px;
     height: 100%;
-    background-color: darkblue;
+    background-color: white;
     display: none;
     position: absolute;
     right: -280px;
     opacity: 1;
     z-index: 2;
   }
+  .menu-trigger_close{
+    width: 100%;
+    height: 60px;
+  }
+  .menu-trigger_close>a>img{
+    width: 30px;
+    margin-left: 60px;
+  }
   .hidden_hambeger_menubar>a>img{
-    width: 50px;
-    margin-left: 230px;
-    
+    width: 100%;
   }
   .h_h_header{
     width: 280px;
@@ -536,12 +565,40 @@ footer{
   .h_h_ul{
     width: 280px;
     height: 70%;
-    background-color: beige;
+    
+  }
+  .h_h_ul>li{
+    width: 100%;
+    height: 50px;
+    
+  }
+  .h_h_ul_a{
+    font-size: 25px;
+  }
+  .h_pro{
+    height: 50px;
+    
+  }
+  .h_pro_a{
+    float: right;
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  .h_pro_a2{
+    display: none;
+    float: right;
+    font-size: 30px;
+    margin-right: 14px;
+  }
+  .h_pro_ul{
+    display: none;
+  }
+  .h_pro_ul a{
+    font-size: 20px;
   }
   .h_h_footer{
     width: 280px;
     height: 20%;
-    background-color: black;
   }
 /* --- */
 
@@ -648,7 +705,6 @@ footer{
       .hidden_hambeger_menubar{
         width: 280px;
         height: 100%;
-        background-color: darkblue;
         display: none;
         position: absolute;
         right: -280px;
@@ -684,18 +740,17 @@ footer{
         display: block;
         width: 100vw;
         height: 100px;
-        background-color: red;
     }
    
     .mobbile_logo img{
         width: 200px;
-        margin-left: 20px;
+        margin: 10px
     }
    
-    .mobile_hame img{
+    .mobile_hame img {
         width: 50px;
         margin-left: 45vw;
-        margin-top: -50px;
+        margin-top: -65px;
     }
     #sub_wrap, .wrap {
         width: auto;
