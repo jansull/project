@@ -404,7 +404,7 @@ header {
 
 section{
     width: 100%;
-    height: 2600px;
+    height: 1800px;
     background-color: rgb(255, 255, 255);
 }
 
@@ -593,14 +593,14 @@ section{
 }
 .middle_program{
     padding: 100px 0;
-    background: url(../picture/main_sec01_bg.png) no-repeat center top;
+    /* background: url(../picture/main_sec01_bg.png) no-repeat center top; */
 }
 .middle_program>h2{
     text-align: center;
 }
 .program_container{
     max-width: 1200px;
-    height: 1700px;
+    height: 900px;
     position: relative;
     margin: 0 auto;
     padding: 0;
@@ -656,21 +656,18 @@ section{
 
 footer{
     width: 100%;
-    height: 300px;
     /* background-color: gray; */
     
 }
 .footer_main{
-    height: 300px;
-    /* background-color: rgb(72, 112, 160); */
+    height: 100px;
 }
 .f_up{
-    height: 200px;
     background-color: rgb(66, 66, 66);
 }
 .inner{
     width: 1500px;
-    height: 200px;
+    height: 100px;
     position: relative;
     margin: 0 auto;
     background-color: rgb(66, 66, 66);
@@ -682,27 +679,33 @@ footer{
 }
 .f_down{
     height: 100px;
-    background-color: rgb(42, 42, 42);
+    background-color: rgb(66, 66, 66);
+    
 }
 .f_down_1{
     width: 1500px;
     height: 29%;
     margin: 0 auto;
-    background-color: rgb(42, 42, 42);
+    background-color: rgb(66, 66, 66);
     border-bottom: 1px solid black;
+    border-top: solid black 1px;
 }
 .f_down_ul>li{
     display: inline;
+    margin-left: 30px;
+    color: black;
 }
 .f_down_2{
     width: 1500px;
     height: 70%;
     margin: 0 auto;
-    background-color: rgb(42, 42, 42);
+    background-color: rgb(66, 66, 66);
 }
+
 .f_down_2>ul>li{
-    font-size: 30px;
+    font-size: 10px;
     font-weight: bold;
+    color: black;
 }
 @media screen and (max-width: 1200px){
     .program_container {
@@ -765,7 +768,7 @@ footer{
 
 @media screen and (max-width :800px){
     section{
-        height: 3500px;
+        height: 3000px;
     }
     .middle_list{
         height: 1000px;
@@ -850,7 +853,6 @@ footer{
         width: 100%;
     }
     .f_down_2>ul>li{
-        font-size: 25px;
         font-weight: bold;
     }
     .map{

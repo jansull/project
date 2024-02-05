@@ -282,7 +282,7 @@ header {
     text-align: center;
     color: white;
     font-size: 30px;
-    
+    text-shadow: 3px 4px 5px rgb(41, 41, 41);
 }
 
 /* 상단 주소 관련 */
@@ -337,6 +337,8 @@ header {
     background: #00255c;
     border-radius: 5px;
 }
+
+
 .side .depth1 {
     position: relative;
 }
@@ -354,11 +356,14 @@ header {
     border-radius: 5px 5px 0 0;
 }
 .side .depth2 {
+    display: none;
     padding: 10px 0;
     border-radius: 0 0 5px 5px;
     border: 1px solid #e5e7ee;
     background: #f7f7f7;
+    
 }
+
 .side .depth2 li a {
     padding: 8px 0 0 10px;
     border-bottom: 0;
@@ -368,7 +373,7 @@ header {
     text-decoration: underline;
 }
 
-.side .depth1 > a.active::after {
+.side .depth1 > a.active::f_down_1 {
     content: "";
     width: 15px;
     height: 15px;
@@ -386,6 +391,9 @@ header {
     right: 10px;
     top: 15px;
     background: url(/picture/icon_lnb_depth1.png) no-repeat;
+}
+.depth1{
+    /* height: 140px; */
 }
 /* --- */
 /* 우측 메인컨텐츠 */

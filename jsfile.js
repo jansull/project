@@ -332,4 +332,8 @@ function nextSlide() {
         $(".h_pro_a2").css('display','none');
         $(".h_pro_a").css('display','block');
     });
+   
+        $('.depth1 a').on('click', function() {
+            $(this).next().slideToggle("300");
+        })
 });
