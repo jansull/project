@@ -333,7 +333,7 @@ function nextSlide() {
         $(".h_pro_a").css('display','block');
     });
    
-        $('.depth1 a').on('click', function() {
+        $('.depth1-image').on('click', function() {
             $(this).next().slideToggle("300");
         })
 });

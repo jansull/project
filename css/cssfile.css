@@ -656,8 +656,6 @@ section{
 
 footer{
     width: 100%;
-    /* background-color: gray; */
-    
 }
 .footer_main{
     height: 100px;
@@ -675,12 +673,10 @@ footer{
 }
 .inner>img{
     width: 100px;
-    
 }
 .f_down{
     height: 100px;
     background-color: rgb(66, 66, 66);
-    
 }
 .f_down_1{
     width: 1500px;

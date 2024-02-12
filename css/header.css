@@ -5,6 +5,30 @@
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
    }
+   @font-face {
+    font-family: 'KimjungchulMyungjo-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'KimjungchulMyungjo-Light';
+    src: url('../font/ttf/KimjungchulMyungjo-Light.ttf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SOYOMapleBoldTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 ul, ol, dl, div, dd, dt, li, p, h4, h5 {
     box-sizing: border-box;
@@ -392,6 +416,15 @@ header {
     top: 15px;
     background: url(/picture/icon_lnb_depth1.png) no-repeat;
 }
+.depth1-image{
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    background: url(/picture/icon_lnb_depth1.png) no-repeat;
+}
 .depth1{
     /* height: 140px; */
 }
@@ -423,6 +456,33 @@ header {
     padding-top: 48px;
     padding-bottom: 80px;
 }
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    /* padding: 10px 25px; */
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+  .btn-1 {
+    background: rgb(157, 158, 168);
+    background: linear-gradient(0deg, rgb(146, 213, 170) 0%, rgb(119, 212, 119) 100%);
+    border: none;
+  }
+  .btn-1:hover {
+     background: rgb(186, 186, 186);
+  background: linear-gradient(0deg, rgb(0, 255, 157) 0%, rgb(106, 251, 2) 100%);
+  }
+  
 /* --- */
 .guide_bar {
     width: 60px;
