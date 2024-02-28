@@ -413,8 +413,8 @@ header {
     position: absolute;
     right: 10px;
     top: 15px;
-    background: url(/picture/icon_lnb_depth1.png) no-repeat;
 }
+
 .depth1-image{
     content: "";
     width: 15px;
