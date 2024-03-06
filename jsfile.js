@@ -337,3 +337,29 @@ function nextSlide() {
             $(this).next().slideToggle("300");
         })
 });
+
+
+// reserve 페이지 체험분류에 따른 프로그램명 변경
+function categoryChange(e) {
+	var program_selectBox_a = ["전연령 숲체험", "유아숲 체험", "유로숲 체험"];
+	var program_selectBox_b = ["농임업 임산물체험", "산림 에코힐링", "주말농장"];
+	var program_selectBox_c = ["산림테라피", "숲에서놀자", "숲에서 찾는 인문학"];
+    var program_selectBox_d = ["생태감수성", "탄소중립", "전통숲놀이"];
+    var program_selectBox_e = ["산천나들이 모니터링", "물속세상모니터링"];
+	var target = document.getElementById("program_selectBox");
+
+	if(e.value == "a") var d = program_selectBox_a;
+	else if(e.value == "b") var d = program_selectBox_b;
+	else if(e.value == "c") var d = program_selectBox_c;
+    else if(e.value == "d") var d = program_selectBox_d;
+    else if(e.value == "e") var d = program_selectBox_e;
+
+	target.options.length = 0;
+
+	for (x in d) {
+		var opt = document.createElement("option");
+		opt.value = d[x];
+		opt.innerHTML = d[x];
+		target.appendChild(opt);
+	}	
+}
