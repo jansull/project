@@ -333,14 +333,14 @@ header {
 .location > ol > li {
     margin-right: 4px;
     padding-right: 15px;
-    background: url(../picture/location_arrow.png) no-repeat right 8px;
+    background: url(../image/location_arrow.png) no-repeat right 8px;
     display: inline-block;
 }
 .location > ol > li > a.home {
     width: 15px;
     height: 19px;
     overflow: hidden;
-    background: url(../picture/icon_home.png) left 5px no-repeat;
+    background: url(../image/icon_home.png) left 5px no-repeat;
     text-indent: 9999px;
 }
 /* --- */
