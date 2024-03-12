@@ -1,3 +1,4 @@
+<%@page import="common.CommonUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html>
@@ -5,6 +6,7 @@
     <script src="js/jquery-1.8.1.min.js"></script>
     <script src="jsfile.js"></script>
     <script src="summernote-ko-KR.js"></script>
+    <script src="js/header.js"></script>
     <!-- include libraries(jQuery, bootstrap) -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
@@ -13,9 +15,51 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
-    <link href="css/reserve.css" rel="stylesheet">
+    <link href="css/notice_write.css" rel="stylesheet">
     <script>
-        $(document).ready(function() {
+    function NoticeSave(gubun){
+    	var fileName = notice_write.img_attach.value;
+		if(fileName != ""){ 
+			var pathFileName = fileName.lastIndexOf(".")+1;    //확장자 제외한 경로+파일명
+			var extension = (fileName.substr(pathFileName)).toLowerCase();	//확장자명
+			//파일명.확장자
+			if(extension != "jpeg" && extension != "gif" && extension != "png" && extension != "jpg"){
+				alert(extension +" 형식 파일은 업로드 안됩니다. 이미지 파일만 가능!");
+				return;
+			}		
+		}
+		
+		// 2.첨부 용량 체크	
+		var file = notice_write.img_attach;
+		var fileMaxSize  = 5; // 첨부 최대 용량 설정
+		if(file.value !=""){
+			// 사이즈체크
+			var maxSize  = 1024 * 1024 * fileMaxSize;  
+			var fileSize = 0;
+			// 브라우저 확인
+			var browser=navigator.appName;
+			// 익스플로러일 경우
+			if (browser=="Microsoft Internet Explorer"){
+				var oas = new ActiveXObject("Scripting.FileSystemObject");
+				fileSize = oas.getFile(file.value).size;
+			}else {
+			// 익스플로러가 아닐경우
+				fileSize = file.files[0].size;
+			}
+
+			if(fileSize > maxSize){
+				alert(" 첨부파일 사이즈는 "+fileMaxSize+"MB 이내로 등록 가능합니다. ");
+				return;
+			}
+		
+    	}
+    	notice_write.method="post";
+    	notice_write.action="Community?t_gubun=notice_save";
+    	notice_write.submit();
+   }
+    </script>
+    <script>
+    $(document).ready(function() {
     $('#summernote').summernote({
 		  height: 300,                                      // 에디터 높이
 		  focus: true,                                      // 에디터 로딩후 포커스를 맞출지 여부
@@ -29,221 +73,59 @@
 			    ['fontsize', ['fontsize']],
 			    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
 			    ['color', ['forecolor','color']],
-                ['insert',['picture','link','video']],
+                ['insert',['link']],
 			    ['view', ['fullscreen', 'help','codeview']]
 			  ],
 			fontNames: ['맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
 			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
-                    callbacks: {
-                    onImageUpload : function(files){
-                        sendFile(files[0],this);
-                    }
-                }
+                   
 
 
           
-	});
-    });
-    function sendFile(file, editor){
-		var data = new FormData();
-		data.append("file", file);
-		console.log(file);
-		$.ajax({
-			data : data,
-			type : "POST",
-			url : "SummerNoteImageFile",
-			contentType : false,
-			processData : false,
-			success : function(data){
-				console.log(data);
-				console.log(editor);
-				$(editor).summernote("insertImage",data.url);
-			}
 		});
-	}
-
-
-   
-    
-    
+    $(function(){					
+		function readImage(input) {
+		    // 인풋 태그에 파일이 있는 경우
+		    if(input.files && input.files[0]) {
+		        // 이미지 파일인지 검사 (생략)
+		        // FileReader 인스턴스 생성
+		        const reader = new FileReader()
+		        // 이미지가 로드가 된 경우
+		        reader.onload = e => {
+		            const previewImage = document.getElementById("preview-image")
+		            previewImage.src = e.target.result;
+		        }
+		        // reader가 이미지 읽도록 하기
+		        reader.readAsDataURL(input.files[0])
+		    } else {
+		    	// 이미지 안올렸으면
+				$("#preview-image").attr('src','');
+				$("#preview-image").css("display","none");
+		    }
+		}
+		// input file에 change 이벤트 부여
+		const inputImage = document.getElementById("input-image");
+		inputImage.addEventListener("change", e => {
+			$("#preview-image").css("display","block");
+		    readImage(e.target)
+		})	
+	});	
+    $("#input_files").on('change',function(){
+    	  var fileName = $("#input_files").val();
+    	  $(".upload-name").val(fileName);
+    	});
+    });
     </script>
     
 </head>
 <body>
-    
-    <!-- 햄버거 버튼-->
-    <div class="hidden_hambeger">
-        <div class="hidden_hambeger_menubar">
-            <div class="menu-trigger_close">
-                <img src="image/logo_font.png" style="width: 170px;">
-                <a href="#">
-                    <img src="image/iconmonstr-x-mark-thin-240.png" alt="">
-                </a>
-            </div>
-            
-            <!-- <div class="h_h_header"><img src="picture/logo_font.png" alt=""></div> -->
-            <ul class="h_h_ul">
-                <li><a href="" class="h_h_ul_a">회사소개</a></li>
-                <li class="h_pro"><a href="" class="h_h_ul_a"  >사업분야</a>
-                    <a href="" class="h_pro_a">+</a>
-                    <a href="" class="h_pro_a2">-</a>
-                    <ul class="h_pro_ul">
-                        <li><a href="">숲치유</a></li>
-                        <li><a href="">학교 환경교육</a></li>
-                        <li><a href="">지역생태 모니터링</a></li>
-                        <li><a href="">전연령 전문업</a></li>
-                        <li><a href="">농 임업 임산물</a></li>
-                        
-                    </ul>
-                </li>
-                <li><a href="" class="h_h_ul_a">체험신청</a></li>
-                <li><a href="" class="h_h_ul_a">커뮤니티</a></li>
-            </ul>
-            <div class="h_h_footer"></div>
-        </div>
-    </div>
+<form name="pagemove">
+	<input type="hidden" name="t_gubun">
+</form>    
+    <%@ include file="../Hambuger.jsp"%> 
     <div class="all">
         
-        <header>
-            
-            <!-- header grid 정리 -->
-            <div class="header_container">
-                <!-- 로그인, 회원가입 -->
-                <div class="top_left_index"> </div>
-                <div class="top_menu">
-                   
-                    <!-- <ul class="top_ui">
-                        <a href="">로그인</a>
-                        <a href="">회원가입</a>
-                        <li class="menu0"> </li>
-                    </ul> -->
-                </div>
-                <div class="top_right_index"> </div>
-                
-                <!-- 상단바 -->
-                <div class="menu_left_index"> </div>
-                    <div class="menu_logo"> 
-                        <a href="../index.html"><img src="image/logo_font.png"></a>
-                    </div>
-                <div class="menu_middle_index"> </div>
-                    <div class="menu_bar">
-                        <ul class="first_menu">
-                            <li class="menu_1"><a href="../1_compnay/company.html">회사소개</a></li>
-                            <li class="menu_2"><a href="../2_program/sub.html">사업분야</a></li>
-                            <li class="menu_3"><a href="../3_apply/apply.html">체험신청</a></li>
-                            <li class="menu_4"><a href="">커뮤니티</a></li>
-                        </ul>
-                        
-                    </div>
-                    <div class="menu_right_index"> </div>
-
-                <!-- 히든바 -->
-                <div class="hidden_bar_1 hb"> 
-                    <ul class="down_bar">
-                        <div class="down_bar_logo1">
-                            <div class="logo1_text">
-                                <li href="" class="logo_text_main"><a href="">회사소개</a></li>
-                                <li href="" class="logo_text_sub">
-                                    <a href="">지구의 미래를 키우는 기업<br></a>
-                                    <a href="">환경과 함께 성장해나가는 기업이 되겠습니다.</a>
-                                </li>
-                            </div>
-                            <div class="logo_image"><img src="image/worldwide.png"></div>
-                        </div>
-                        <li><a href="" class="top_main">회사소개</a></li>
-                        <li><a href="" class="top_main">오시는길</a></li>
-                        <li><a href="" class="top_main">연혁</a></li>
-                        <li><a href="" class="top_main">조직도</a></li>
-                    </ul>
-                </div>
-                <div class="hidden_bar_2 hb"> 
-                    <ul class="down_bar">
-                        <div class="down_bar_logo1">
-                            <div class="logo1_text">
-                                <li href="" class="logo_text_main"><a href="">사업분야</a></li>
-                                <li href="" class="logo_text_sub">
-                                    <a href="">지구의 미래를 키우는 기업<br></a>
-                                    <a href="">환경과 함께 성장해나가는 기업이 되겠습니다.</a>
-                                </li>
-                            </div>
-                            <div class="logo_image"><img src="image/planet-earth.png"></div>
-                        </div>
-                        <li><a href="" class="top_main">기관 숲체험 프로그램</a>
-                            <a href="" class="top_sub">전연령 숲체험</a>
-                            <a href="" class="top_sub">유아숲 체험</a>
-                            <a href="" class="top_sub">유로숲 체험</a>
-                        </li>
-                        <li><a href="" class="top_main">녹색사업</a>
-                            <a href="" class="top_sub">농임업 임산물체험</a>
-                            <a href="" class="top_sub">산림 에코힐링</a>
-                            <a href="" class="top_sub">주말농장</a>
-                        </li>
-                        <li>
-                            <a href="" class="top_main">숲치유</a>
-                            <a href="" class="top_sub">산림테라피</a>
-                            <a href="" class="top_sub">숲에서놀자</a>
-                            <a href="" class="top_sub">숲에서 찾는 인문학</a>
-                        </li>
-                        <li>
-                            <a href="" class="top_main">학교 환경교육 </a>
-                            <a href="" class="top_sub">생태감수성</a>
-                            <a href="" class="top_sub">탄소중립</a>
-                            <a href=""class="top_sub">전통숲놀이</a>
-                        </li>
-                        <li><a href="" class="top_main">지역생태 모니터링</a>
-                            <a href="" class="top_sub">산천나들이 모니터링</a>
-                            <a href="" class="top_sub">물속세상모니터링</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="hidden_bar_3 hb"> 
-                    <ul class="down_bar">
-                        <div class="down_bar_logo1">
-                            <div class="logo1_text">
-                                <li href="" class="logo_text_main"><a href="">체험신청</a></li>
-                                <li href="" class="logo_text_sub">
-                                    <a href="">지구의 미래를 키우는 기업<br></a>
-                                    <a href="">환경과 함께 성장해나가는 기업이 되겠습니다.</a>
-                                </li>
-                            </div>
-                            <div class="logo_image"><img src="image/free-icon-document-88159.png"></div>       
-                        </div>
-                        <li><a href="" class="top_main">체험신청</a></li>
-                        
-                    </ul>
-                </div>
-                <div class="hidden_bar_4 hb"> 
-                    <ul class="down_bar">
-                        <div class="down_bar_logo1">
-                            <div class="logo1_text">
-                                <li href="" class="logo_text_main"><a href="">커뮤니티</a></li>
-                                <li href="" class="logo_text_sub">
-                                    <a href="">지구의 미래를 키우는 기업<br></a>
-                                    <a href="">환경과 함께 성장해나가는 기업이 되겠습니다.</a>
-                                </li>
-                            </div>
-                            <div class="logo_image"><img src="image/free-icon-faq-2408089.png"></div>
-                        </div>
-                        <li><a href="" class="top_main">공지사항</a></li>
-                        <li><a href="" class="top_main">자료실</a></li>
-                        <li><a href="" class="top_main">소통방</a></li>
-                        <li><a href="" class="top_main">갤러리</a></li>
-                        <li>
-                            <a href="" class="top_main">함께도서추천</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="menu_logos">
-                <div class="mobbile_logo"><img src="image/logo_font.png"></div> 
-                
-                <div class="mobile_hame"><a class="menu-trigger" href="#">
-                    <img src="image/iconmonstr-menu-thin-240.png" >
-                </a></div>
-                
-            </div>
-            
-        </header>
+        <%@ include file="../sub_header.jsp" %>
         <div class="middle_img">
             <img src="image/13cli-trees-01-wpgf-videoSixteenByNine3000.jpg" >
         </div>
@@ -286,21 +168,36 @@
                             <div class="sub_title"><h3>공지사항</h3></div>
                         </div>
                         <div id="contents">
+                        <form name="notice_write" enctype="multipart/form-data">
                             <div class="wrap0">
-                             
-                                <input type="text" id="user_title" placeholder="제목을 입력해 주세요.">
-
-                            </div>
+                             <input type="text" id="user_title" placeholder="제목을 입력해 주세요." name="title">
+                        	</div>
+                        <div>
+	                            		  <label for="input-image">
+	  										<div class="btn-upload" >
+	  										 이미지 업로드하기
+	  										</div>
+										</label>
+										
+									<input type="file" name="img_attach" id="input-image">
+								 	<img  id="preview-image">
+                               		<textarea id="summernote" name="summer"></textarea>
+                                	<input type="date" value="${Today}" name="reg_date" style="width: 200px;"><br><br>
+                                	<input class="upload-name"  placeholder="첨부파일" style="width:300px; height: 40px; " readonly>
+                                	<label for="input_files">
+		  										<div class="btn-upload">
+		  										 파일 업로드하기
+		  										</div>
+		  										
+										</label>
+									<input type="file" name="attach" id="input_files">
+                                	<input type="text" value="" style="float: right;" name="user" readonly="readonly">
                             
-                            <!-- Step.0 글쓰기 -->
-                                <textarea id="summernote" name="summer"></textarea>
-                            <div >
-                                파일<input type="file">
-                                <input type="date" value="">
-                                <input type="text" value="" style="float: right;">
-                            </div>
+                            
+                           </div>		
                            
-                            <input type="button" onclick="" value="글쓰기" class="custom-btn btn-1" style="float: right;">
+                            <input type="button" onclick="NoticeSave();" value="글쓰기" class="custom-btn btn-1" style="float: right;">
+                          </form>
                     </section>
                 </div>
             </div>
@@ -329,42 +226,7 @@
         <a href="#" class="page_top">TOP</a>
         
         
-        <!-- 하단바
-        <footer>  
-            <div class="footer_main">
-                <div class="f_up">                             
-                    <div class="inner">
-                       
-                        <p style="font-size: 20px; color: white; text-align: right; width: 400px; float: left; height: 100px;"  >
-                            체험안내문의<br>
-                            (토/일/공휴일 휴뮤) 평일 : 09:00 ~ 18:00<br>
-                           
-                            전화번호:010-7503-5370
-                        </p>
-                    </div>
-                </div> 
-
-                <div class="f_down">
-                    <div class="f_down_1">
-                        <ul class="f_down_ul">
-                            <li style="color: white;"><a href="">이용약관</a></li>
-                            <li style="color: white;" ><a href="">개인정보처리방침</a></li>
-                            <li style="color: white;"><a href="">사업소개</a></li>
-                        </ul>
-
-
-                    </div>
-                    <div class="f_down_2" >
-                        <ul>   
-                            <li>주식회사숲인들  </li>
-                            <li>회사주소 :충남 당진시 사기소길 58-33  </li>
-                            <li>Desingned by Flaticon</li>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-        </footer> -->
+        <%@ include file="../footer.jsp"%> 
     </div>
 </body>
 </html>

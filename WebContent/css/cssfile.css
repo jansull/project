@@ -389,7 +389,7 @@ header {
     text-align: center;
     color: white;
     font-size: 30px;
-    
+    text-shadow: 3px 4px 5px rgb(41, 41, 41);
 }
 .bnanner > img {
     width: 1920px;

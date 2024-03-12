@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.Notice_write;
+import common.CommonExcute;
+import common.CommonUtil;
+
 /**
  * Servlet implementation class Community
  */
@@ -36,7 +40,13 @@ public class Community extends HttpServlet {
 		}else if (gubun.equals("notice")) {
 			viewpage="4_community/notice.jsp";
 		}else if (gubun.equals("notice_write")) {
+			String today = CommonUtil.getToday();
+			request.setAttribute("Today", today);
 			viewpage="4_community/notice_write.jsp";
+		}else if (gubun.equals("notice_save")) {
+			CommonExcute community = new Notice_write();
+			community.excute(request);
+			viewpage="common_alert.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewpage);

@@ -72,26 +72,7 @@
         </div>
 
 
-        <!-- 가이드바 -->
-        <ul class="guide_bar">
-            <li>
-                <a><img src="..//picture/iconmonstr-tree-2-240.png"></a>
-                <span>회사소개</span>
-            </li>
-            <li>
-                <a><img src="..//picture/iconmonstr-file-22-240.png"></a>
-                <span>프로그램 안내</span>
-            </li>
-            <li>
-                <a><img src="..//picture/iconmonstr-note-23-240.png"></a>
-                <span>체험신청</span>
-            </li>
-            <li>
-                <a><img src="..//picture/iconmonstr-help-6-240.png"></a>
-                <span>질문</span>
-            </li>
-        </ul>
-        <a href="#" class="page_top">TOP</a>
+        <%@include file="../guide_bar.jsp" %>
     </section>
         <!-- 하단바 -->
         <footer>  

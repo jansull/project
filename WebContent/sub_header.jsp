@@ -1,4 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <header>
             
             <!-- header grid 정리 -->
@@ -88,6 +91,9 @@
                             <a href="" class="top_sub">산천나들이 모니터링</a>
                             <a href="" class="top_sub">물속세상모니터링</a>
                         </li>
+                        <li>
+                            <a href="" class="top_main">로컬 먹거리 직구</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="hidden_bar_3 hb"> 
@@ -105,9 +111,7 @@
                             <li>
                                 <a href="" class="top_main">체험신청</a>
                             </li>
-                            <li>
-                            <a href="" class="top_main">로컬 먹거리 직구</a>
-                            </li>
+                            
                     </ul>
                 </div>
                 <div class="hidden_bar_4 hb"> 

@@ -52,7 +52,7 @@
                     </section>
                     <section id="right_wp">
                         <div class="sub_info">
-                            <div class="sub_title"><h3>체험신청</h3></div>
+                            <div class="sub_title"><h3 style="font-family: 'KimjungchulMyungjo-Bold';">체험신청</h3></div>
                         </div>
                         <div id="contents">
                             <table style="border:1px solid #CCC;width:100%;margin-bottom:50px;">
@@ -227,36 +227,7 @@
         <a href="#" class="page_top">TOP</a>
     </section>
         
-         <!-- 하단바 -->
-         <footer>  
-            <div class="footer_main">
-                <div class="f_up">                             
-                    <div class="inner">
-                        <p style="font-size: 20px; color: white; text-align: right; width: 400px; float: left; height: 100px;"  >
-                            체험안내문의<br>
-                            (토/일/공휴일 휴뮤) 평일 : 09:00 ~ 18:00<br>
-                            전화번호:010-7503-5370
-                        </p>
-                    </div>
-                </div> 
-                <div class="f_down">
-                    <div class="f_down_1">
-                        <ul class="f_down_ul">
-                            <li style="color: white;"><a href="">이용약관</a></li>
-                            <li style="color: white;" ><a href="">개인정보처리방침</a></li>
-                            <li style="color: white;"><a href="">사업소개</a></li>
-                        </ul>
-                    </div>
-                    <div class="f_down_2" >
-                        <ul>   
-                            <li>주식회사숲인들  </li>
-                            <li>회사주소 :충남 당진시 사기소길 58-33  </li>
-                            <li>Desingned by Flaticon</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+         <%@ include file="../footer.jsp"%> 
     </div>
 </body>
 </html>
