@@ -54,7 +54,7 @@
 		
     	}
     	notice_write.method="post";
-    	notice_write.action="Community?t_gubun=notice_save";
+    	notice_write.action="Community?t_gubun=gallery_save";
     	notice_write.submit();
    }
     </script>
@@ -113,7 +113,7 @@
     $("#input_files").on('change',function(){
     	  var fileName = $("#input_files").val();
     	  $(".upload-name").val(fileName);
-    	});
+    	});f
     });
     </script>
     
@@ -131,7 +131,7 @@
         </div>
         <!-- <div class="titleBox"><span>사업분야</span></div> -->
         <div class="middle_img_text">
-            <h2>공지사항</h2>
+            <h2>갤러리</h2>
         </div>
         <div id="container">
             <!-- 상단 사진 -->
@@ -140,7 +140,7 @@
             <div class="location">
                 <ol class="wrap">
                     <li><a class="home" href="index.html">&nbsp&nbsp&nbsp&nbsp</a></li>
-                    <li><a href="">공지사항</a></li>
+                    <li><a href="">갤러리</a></li>
                 </ol>
             </div>
             <div id="sub_wrap">
@@ -165,7 +165,7 @@
                     <!-- 우측 메인컨텐츠 -->
                     <section id="right_wp">
                         <div class="sub_info">
-                            <div class="sub_title"><h3>공지사항</h3></div>
+                            <div class="sub_title"><h3>갤러리</h3></div>
                         </div>
                         <div id="contents">
                         <form name="notice_write" onsubmit="return false;" enctype="multipart/form-data">
@@ -173,12 +173,13 @@
                              <input type="text" id="user_title" placeholder="제목을 입력해 주세요." name="title">
                         	</div>
                         <div>
-	                            		  <label for="input-image">
-	  										<div class="btn-upload" >
-	  										 이미지 업로드하기
-	  										</div>
-										</label>
+	                            		  
+										
+										
+										
+										
 										<script type="text/javascript" src="js/community_write.js"></script>
+										
 										<style>
 										.insert {
 										    padding: 20px 30px;
@@ -213,22 +214,22 @@
 										    content: ''; /* 가상 요소에 내용을 추가합니다 */
 										}
 										</style>
+									
+										
 									<input type="file" name="img_attach" id="input-image">
 								 	<img  id="preview-image">
                                		<textarea id="summernote" name="summer"></textarea>
                                 	<input type="date" value="${Today}" name="reg_date" style="width: 200px;">
                                 	<input type="text" value="" style="float: right;" name="user" readonly="readonly">
-                                	<div class="insert">
-	                                	<label for="input_files">
-			  										<div class="btn-upload">
-			  										 파일 업로드하기
-			  										</div>
-			  										
-											</label>
-										 <input type="file" onchange="addFile(this);"  name="attach" style="display: none;"id="input_files" multiple />
-										        <div class="file-list"></div>
-                                	
-                            	</div>
+                            		<div class="insert">
+                            		<label for="input-images">
+	  										<div class="btn-upload" >
+	  										 이미지 업로드하기
+	  										</div>
+										</label>
+									        <input type="file" onchange="addFile(this);"  style="display: none;"id="input-images" multiple />
+									        <div class="file-list"></div>이미지는 글 보다 먼저 올라갑니다.<br>이미지는 되도록이면 같은 크기의 사진으로 올려주세요.
+									</div>
                             
                            </div>		
                            
@@ -240,7 +241,26 @@
         </div>
 
 
-        <%@include file="../guide_bar.jsp" %>
+        <!-- 가이드바 -->
+        <ul class="guide_bar">
+            <li>
+                <a><img src="..//picture/iconmonstr-tree-2-240.png"></a>
+                <span>회사소개</span>
+            </li>
+            <li>
+                <a><img src="..//picture/iconmonstr-file-22-240.png"></a>
+                <span>프로그램 안내</span>
+            </li>
+            <li>
+                <a><img src="..//picture/iconmonstr-note-23-240.png"></a>
+                <span>체험신청</span>
+            </li>
+            <li>
+                <a><img src="..//picture/iconmonstr-help-6-240.png"></a>
+                <span>질문</span>
+            </li>
+        </ul>
+        <a href="#" class="page_top">TOP</a>
         
         
         <%@ include file="../footer.jsp"%> 

@@ -16,9 +16,9 @@ public class DBConnection {
 			System.out.println("mysql 드라이버 없음");
 			e.printStackTrace();
 		}
-		String db_address="jdbc:mysql://localhost/forest?serverTimezone=UTC";//나중에 수정해야함
-		String db_user 	 = "test2";
-		String db_password = "0108093451110";
+		String db_address="jdbc:mariadb://sunja537012.cafe24.com/sunja537012?serverTimezone=UTC";//나중에 수정해야함
+		String db_user 	 = "sunja537012";
+		String db_password = "gkftndlTek";
 		
 		try {
 			con = DriverManager.getConnection(db_address, db_user, db_password);

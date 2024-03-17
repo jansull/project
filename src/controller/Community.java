@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.Notice_list;
 import command.Notice_write;
 import common.CommonExcute;
 import common.CommonUtil;
+import forestDao.ForestDao;
 
 /**
  * Servlet implementation class Community
@@ -36,9 +38,18 @@ public class Community extends HttpServlet {
 		String gubun=request.getParameter("t_gubun");
 		String viewpage="";
 		if(gubun==null) {
+			CommonExcute community =new Notice_list();
+			community.excute(request);
 			viewpage="4_community/notice.jsp";
+			request.setAttribute("t_gubunMenu", "notice");
 		}else if (gubun.equals("notice")) {
+			CommonExcute community =new Notice_list();
+			community.excute(request);
 			viewpage="4_community/notice.jsp";
+			request.setAttribute("t_gubunMenu", "notice");
+		}else if (gubun.equals("notice_view")) {
+			viewpage="4_community/notice_view.jsp";
+			request.setAttribute("t_gubunMenu", "notice");
 		}else if (gubun.equals("notice_write")) {
 			String today = CommonUtil.getToday();
 			request.setAttribute("Today", today);
@@ -47,6 +58,13 @@ public class Community extends HttpServlet {
 			CommonExcute community = new Notice_write();
 			community.excute(request);
 			viewpage="common_alert.jsp";
+		}else if (gubun.equals("gallery")) {
+			viewpage="4_community/gallery.jsp";
+			request.setAttribute("t_gubunMenu", "gallery");
+		}else if (gubun.equals("gallery_write")) {
+			String today = CommonUtil.getToday();
+			request.setAttribute("Today", today);
+			viewpage="4_community/gallery_write.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewpage);

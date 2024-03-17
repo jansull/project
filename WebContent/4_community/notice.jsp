@@ -35,36 +35,7 @@
             </div>
             <div id="sub_wrap">
                 <div class="wrap">
-                    <!-- 좌측 사이드바 -->
-                    <section id="side" class="side">
-                        <h2><span class="side_subject">커뮤니티</span></h2>
-                        <nav class="lnb">
-                            <ul>
-                                <li class="depth1">
-                                    <a href="notice.html" class="active">- 공지사항</a>
-                                 
-                                </li>
-                                <li class="depth1">
-                                    <a href="files.html" class="">- 자료실</a>
-                                    
-                                </li>
-                                <!-- <li class="depth1">
-                                    <a href="" class="">- 소통방</a>
-                                    
-                                </li> -->
-                                <li class="depth1">
-                                    <a href="gallery.html" class="">- 갤러리</a>
-                                    
-                                </li>
-                                <!-- <li class="depth1">
-                                    <a href="book.html" class="">- 함께도서추천</a>
-                                    
-                                </li> -->
-                                
-                            </ul>
-                        </nav>
-                        <!-- 우측 메인컨텐츠 -->
-                    </section>
+                    <%@include file="community_sidebar.jsp" %>
                     <section id="right_wp">
                         <div class="sub_info">
                             <div class="sub_title"><h3 style="font-family: 'KimjungchulMyungjo-Bold';">공지사항</h3></div>
@@ -125,81 +96,22 @@
                                                 </th>
                                             </tr>
                                         </tbody>
-    
+    									<c:forEach items="${dtos}" var="dto">
                                         <tbody>
                                             <tr class>
-                                                <td class="td_num">315</td>
+                                                <td class="td_num">${dto.getNo()}</td>
                                                 <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다1</a>
+                                                    <a href="javascript:goCommunity('notice_view')">${dto.getTitle()}</a>
                                                 </td>
                                                 <td class="center">
-                                                    <span>bocchi</span>
+                                                    <span>${dto.getUser()}</span>
                                                 </td>
                                                 <td>hit</td>
-                                                <td class="td_date">..</td>
+                                                <td class="td_date">${dto.getReg_date()}</td>
                                                
                                             </tr>
                                         </tbody>
-
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다2</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td>hit</td>
-                                                <td class="td_date">..</td>
-                                               
-                                            </tr>
-                                        </tbody>
-
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다3</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td>hit</td>
-                                                <td class="td_date">..</td>
-                                               
-                                            </tr>
-                                        </tbody>
-
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다4</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td>hit</td>
-                                                <td class="td_date">..</td>
-                                                
-                                            </tr>
-                                        </tbody>
-
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다5</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td>hit</td>
-                                                <td class="td_date">..</td>
-                                               
-                                            </tr>
-                                        </tbody>
+											</c:forEach>
                                     </table>
 
                                     <div class="bo_fx">
