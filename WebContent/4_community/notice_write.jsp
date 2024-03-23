@@ -1,4 +1,4 @@
-<%@page import="common.CommonUtil"%>
+<%@page import="common.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html>
@@ -168,7 +168,7 @@
                             <div class="sub_title"><h3>공지사항</h3></div>
                         </div>
                         <div id="contents">
-                        <form name="notice_write" onsubmit="return false;" enctype="multipart/form-data">
+                        <form name="notice_write"  enctype="multipart/form-data">
                             <div class="wrap0">
                              <input type="text" id="user_title" placeholder="제목을 입력해 주세요." name="title">
                         	</div>
@@ -178,55 +178,27 @@
 	  										 이미지 업로드하기
 	  										</div>
 										</label>
-										<script type="text/javascript" src="js/community_write.js"></script>
-										<style>
-										.insert {
-										    padding: 20px 30px;
-										    display: block;
-										    width: 500px;
-										    margin: 5vh auto;
-										    //height: 90vh;
-										    border: 1px solid #dbdbdb;
-										    -webkit-box-sizing: border-box;
-										    -moz-box-sizing: border-box;
-										    box-sizing: border-box;
-										}
-										.insert .file-list {
-										    height: 200px;
-										    overflow: auto;
-										    border: 1px solid #989898;
-										    padding: 10px;
-										}
-										.insert .file-list .filebox p {
-										    font-size: 14px;
-										    margin-top: 10px;
-										    display: inline-block;
-										}
-										.insert .file-list .filebox .delete i {
-										    color: transparent; /* 텍스트를 투명하게 만듭니다 */
-										    margin-left: 5px;
-										    display: inline-block; /* 인라인 요소를 블록 요소로 변경합니다 */
-										    width: 16px; /* 아이콘의 너비 */
-										    height: 16px; /* 아이콘의 높이 */
-										    background-image: url("image/iconmonstr-x-mark-thin-240.png");
-										    background-size: cover; /* 이미지를 요소에 맞게 조정합니다 */
-										    content: ''; /* 가상 요소에 내용을 추가합니다 */
-										}
-										</style>
+										
 									<input type="file" name="img_attach" id="input-image">
 								 	<img  id="preview-image">
                                		<textarea id="summernote" name="summer"></textarea>
-                                	<input type="date" value="${Today}" name="reg_date" style="width: 200px;">
-                                	<input type="text" value="" style="float: right;" name="user" readonly="readonly">
-                                	<div class="insert">
-	                                	<label for="input_files">
-			  										<div class="btn-upload">
-			  										 파일 업로드하기
-			  										</div>
-			  										
+                                	
+                                	<div class="insert" >
+                                		<div>
+                                		<input type="date" value="${Today}" name="reg_date" style="width: 200px;">
+                                		<input type="text" value="${sessionName}" style="float: right;" name="user" readonly="readonly">
+                                		</div>
+                                		<br>
+	                                		<label for="input_files">
+				  										<div class="btn-upload" >
+				  										 	파일 업로드하기
+				  										</div>
+				  										
 											</label>
-										 <input type="file" onchange="addFile(this);"  name="attach" style="display: none;"id="input_files" multiple />
-										        <div class="file-list"></div>
+											<br>
+											 <input type="file" name="attach" id="input_files" style="display: none;" />
+											 <input type="text" style="float:left; width: 300px;" class="upload-name" readonly="readonly"> 
+	                                	      
                                 	
                             	</div>
                             

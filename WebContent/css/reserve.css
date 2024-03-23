@@ -5,7 +5,12 @@
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
    }
-
+   @font-face {
+    font-family: 'KimjungchulMyungjo-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
 ul, ol, dl, div, dd, dt, li, p, h4, h5 {
     box-sizing: border-box;
     margin: 0;
@@ -98,7 +103,7 @@ header {
 }
 .menu_logo a img {
     width: 100%;
-    height: 80%;
+    height: 100%;
     object-fit: cover;
     /* position: relative; */
     /* z-index: 0; */
@@ -261,7 +266,7 @@ header {
     left: 50%;
     transform: translate(-50%, 120%);
     z-index: 0;
-    font-family: "SOYOMapleBoldTTF";
+    font-family: "KimjungchulMyungjo-Bold";
     text-align: center;
     color: white;
     font-size: 30px;

@@ -247,8 +247,7 @@ burger_close.on('click', function (e) {
     //슬라이드 자동 배너
     $(document).ready(function () {
         $(".bnanner").not(".active").hide(); //화면 로딩 후 첫번째 div를 제외한 나머지 숨김
-        
-        setInterval(nextSlide, 4000); //4초(4000)마다 다음 슬라이드로 넘어감
+        setInterval(nextSlide, 6000); //6초(6000)마다 다음 슬라이드로 넘어감
     });
 
     //이전 슬라이드
@@ -287,38 +286,32 @@ function prevSlide() {
 
 //다음 슬라이드
 function nextSlide() {
-	$(".bnanner").hide();
-	var allSlide = $(".bnanner");
-	var currentIndex = 0;
-	
-	$(".bnanner").each(function(index,item){
-		if($(this).hasClass("active")) {
-			currentIndex = index;
-		}
-        
-	});
-	
-	var newIndex = 0;
-	
-	if(currentIndex >= allSlide.length-1) {
-		//현재 슬라이드 index가 마지막 순서면 0번째로 보냄(무한반복)
-		newIndex = 0;
-	} else {
-		//현재 슬라이드의 index에서 한 칸 만큼 앞으로 간 index 지정
-		newIndex = currentIndex+1;
-	}
+    var $banners = $(".bnanner");
+    var currentIndex = $banners.filter(".active").index();
+    var nextIndex = currentIndex === $banners.length - 1 ? 0 : currentIndex + 1;
 
-	$(".bnanner").removeClass("active");
-	$(".bnanner").eq(newIndex).addClass("active");
-	$(".bnanner").eq(newIndex).show();
-	
+    // 현재 활성 슬라이드를 투명하게 만듭니다.
+    $banners.eq(currentIndex).animate({ opacity: 0 }, 3000, function() {
+        $(this).removeClass("active").hide();
+    });
+
+    // 다음 슬라이드를 서서히 나타나게 합니다.
+    $banners.eq(nextIndex).css({ opacity: 0 }).show().animate({ opacity: 1 }, 3000, function() {
+        $(this).addClass("active");
+    });
 }
+
+
     $(".next").click(function() {
         nextSlide();
     });
     $(".prev").click(function() {
         prevSlide();
     });
+
+
+
+
     $(".h_pro_a").click(function(){
         event.preventDefault();
         $(".h_pro").animate({height: '300px'}, 500); // 500은 애니메이션 지속 시간 (밀리초)

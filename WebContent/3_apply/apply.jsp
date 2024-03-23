@@ -6,6 +6,35 @@
     <script src="jsfile.js"></script>
     <link href="css/apply.css" rel="stylesheet">
     <script src="js/header.js"></script>
+    <script>
+    function goPasswordCheck(no) {
+    	pageMove.t_gubun.value="password_check";
+    	pageMove.a_no.value = no;
+    	pageMove.method = "post";
+    	pageMove.action = "Apply";
+    	pageMove.submit();
+    }
+    function goSearch(){
+		noti.method="post";
+		noti.action="Apply";
+		noti.submit();
+	}
+	function goPage(pageNumber){
+		noti.t_nowPage.value=pageNumber;
+		noti.method="post";
+		noti.action="Apply";
+		noti.submit();
+	}
+	function goAdminView(no){
+		pageMove.t_gubun.value="Admin_view";
+    	pageMove.nos.value = no;
+    	pageMove.method = "post";
+    	pageMove.action = "Apply";
+    	pageMove.submit();
+	}
+    
+    
+    </script>
 </head>
 <body>
 <form name="pagemove">
@@ -41,7 +70,7 @@
                         <nav class="lnb">
                             <ul>
                                 <li class="depth1">
-                                    <a href="javascript:;" class="active">- 체험신청</a>
+                                    <a href="javascript:goApply('apply');" class="active">- 체험신청</a>
                                  
                                 </li>
                                 
@@ -71,22 +100,38 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <!--페이지 검색기능  -->
+                            <form name="noti">
+                            	<input type="hidden" name="t_nowPage">
+                            <p class="select_box select_box_right">
+								<select name="t_select" class="sel_box">
+									<option value="title" <c:if test="${select eq 'title'}">selected</c:if>>제목</option>
+									<option value="write_name" <c:if test="${select eq 'write_name'}">selected</c:if>>이름</option>
+								</select>
+								<input type="text" value="${search}" name="t_search"  class="sel_text">
+								<button type="button" onclick="goSearch()" class="sel_button"><i class="fa fa-search"></i>SEARCH</button>
+							</p>
+							</form>	
                             <h2 class="contents_title">
-                                체험신청
+                               		 체험신청
                                 <!-- <span class="sound_only"> 목록</span> -->
                             </h2>
                             <!-- bo = board -->
                             <div class="bo_list">
                                 <div class="bo_fx">
                                     <div class="bo_list_total">
-                                        <span>Total 315건 / 1페이지</span>
+                                        <span>Total ${total_Count}건 / 1페이지</span>
                                     </div>
                                     <ul class="btn_bo_user">
-                                        <li><a href="reserve.html" class="btn1">글쓰기</a></li>
+                                        <li><a href="javascript:goApply('reserve_user')" class="btn1">글쓰기</a></li>
                                     </ul>
                                 </div>
 
                                 <div class="tb1_wrap">
+                                <form name="pageMove">
+                                <input type="hidden" name="a_no">
+                                <input type="hidden" name="nos">
+                                <input type="hidden" name="t_gubun">
                                     <table>
                                         <caption>체험신청 목록</caption>
                                         <thead> </thead>
@@ -108,94 +153,49 @@
                                                 <th scope="col">상태</th>
                                             </tr>
                                         </tbody>
-    
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다1</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td class="td_date">..</td>
-                                                <td class="td_num">
-                                                    <a href="" class="btn2">예약대기</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다2</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td class="td_date">..</td>
-                                                <td class="td_num">
-                                                    <a href="" class="btn2">예약대기</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다3</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td class="td_date">..</td>
-                                                <td class="td_num">
-                                                    <a href="" class="btn2">예약대기</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다4</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td class="td_date">..</td>
-                                                <td class="td_num">
-                                                    <a href="" class="btn2">예약대기</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-
-                                        <tbody>
-                                            <tr class>
-                                                <td class="td_num">315</td>
-                                                <td class="td_subject">
-                                                    <a href="">봇치더락 밴드 체험 신청합니다5</a>
-                                                </td>
-                                                <td class="center">
-                                                    <span>bocchi</span>
-                                                </td>
-                                                <td class="td_date">..</td>
-                                                <td class="td_num">
-                                                    <a href="" class="btn2">예약대기</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                      
+										<tbody>
+										    <c:forEach items="${dtos}" var="dto">
+										        <c:if test="${dto.getHeader_check() ne '5'}">
+										            <tr>
+										                <td class="td_num">${dto.getNo()}</td>
+										                <td class="td_subject">
+										                	<c:if test="${sessionLevel ne 'top' }">
+										                    <a href="javascript:goPasswordCheck(${dto.getNo()})">${dto.getTitle()}</a>
+										                    </c:if>
+										                    <c:if test="${sessionLevel eq 'top' }">
+										                    <a href="javascript:goAdminView(${dto.getNo()})">${dto.getTitle()}</a>
+										                    </c:if>
+										                </td>
+										                <td class="center">
+										                    <span>${dto.getWrite_name()}</span>
+										                </td>
+										                <td class="td_date">${dto.getApply_date()}</td>
+										                <td class="td_num">
+										                    <c:if test="${dto.getReserve_check() eq 'n' }">
+										                        <a href="" class="btn2">예약대기</a>
+										                    </c:if>
+										                    <c:if test="${dto.getReserve_check() eq 'y' }">
+										                        <a href="" class="btn1">예약완료</a>
+										                    </c:if>
+										                </td>
+										            </tr>
+										        </c:if>
+										    </c:forEach>
+										</tbody>
+                                       
+    								
+                                        
                                     </table>
-
+</form>
                                     <div class="bo_fx">
                                         <ul class="btn_bo_user">
                                             <li><a href="" class="btn1">글쓰기</a></li>
                                         </ul>
                                     </div>
-
+									<div class="paging">
+										${displayPage}
+									</div>
                                 </div>
                             </div>
                         </div>
@@ -205,26 +205,7 @@
         </div>
 
 
-        <!-- 가이드바 -->
-        <ul class="guide_bar">
-            <li>
-                <a><img src="..//picture/iconmonstr-tree-2-240.png"></a>
-                <span>회사소개</span>
-            </li>
-            <li>
-                <a><img src="..//picture/iconmonstr-file-22-240.png"></a>
-                <span>프로그램 안내</span>
-            </li>
-            <li>
-                <a><img src="..//picture/iconmonstr-note-23-240.png"></a>
-                <span>체험신청</span>
-            </li>
-            <li>
-                <a><img src="..//picture/iconmonstr-help-6-240.png"></a>
-                <span>질문</span>
-            </li>
-        </ul>
-        <a href="#" class="page_top">TOP</a>
+        <%@include file="../guide_bar.jsp" %>
     </section>
         
          <%@ include file="../footer.jsp"%> 

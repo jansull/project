@@ -10,6 +10,8 @@
 <form name="loc">
 	<input type="hidden" name="t_gubun">
 	<input type="hidden" name="t_no" value="${t_no}">
+	<input type="hidden" name="a_no" value="${a_no}">
+	<input type="hidden" name="dto" value="${dto}">
 </form>
 <script type="text/javascript">
 	alert("${t_msg}");

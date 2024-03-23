@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <html>
 <head>
     <script src="js/jquery-1.8.1.min.js"></script>
     <script src="jsfile.js"></script>
     <link href="css/cssfile.css" rel="stylesheet">
     <script src="js/header.js"></script>
+    <script type="text/javascript">
+   
+    
+    </script>
 </head>
 <body>
 <form name="pagemove">
@@ -19,21 +26,25 @@
             <!-- header grid 정리 -->
             <div class="header_container">
                 <!-- 로그인, 회원가입 -->
-                <div class="top_left_index"> </div>
-                <div class="top_menu">
-                   
-                    <!-- <ul class="top_ui">
-                        <a href="">로그인</a>
-                        <a href="">회원가입</a>
-                        <li class="menu0"> </li>
-                    </ul> -->
+                <div class="top_left_index" style="line-height: 0;"> </div>
+                <div class="top_menu" style="line-height: 0;">
                 </div>
-                <div class="top_right_index"> </div>
+                <div class="top_right_index" style="line-height: 1.2;">
+                		<c:if test="${empty sessionLevel}">
+                		<a href="javascript:goAdmin('login')">로그인</a>
+                		</c:if>
+                		
+                		<c:if test="${sessionLevel eq 'top' }">
+                		<a href="javascript:goPageMember('myinfo')">내정보</a>
+                		<a href="javascript:goAdmin('logout')">Logout</a>
+                		</c:if>
+                		
+                 </div>
                 
                 <!-- 상단바 -->
                 <div class="menu_left_index"> </div>
                     <div class="menu_logo"> 
-                        <a href="index.html"><img src="image/logo_font.png"></a>
+                        <a href="javascript:goIndex()"><img src="image/logo_font.png"></a>
                     </div>
                 <div class="menu_middle_index"> </div>
                     <div class="menu_bar">
@@ -146,7 +157,7 @@
             </div>
             <div class="menu_logos">
                 <div class="mobbile_logo">
-                    <a href="index.html"><img src="image/logo_font.png"></a>
+                    <a href="javascript:goIndex()"><img src="image/logo_font.png"></a>
                 </div> 
                 
                 <div class="mobile_hame"><a class="menu-trigger" href="#">
@@ -165,8 +176,8 @@
             <div class="middle_img_text">
                 <h2>주식회사 숲인들 <br>생태환경 두드림</h2>
             </div>
-            <a class="prev" onclick="prevSlide()">&#10094;</a>
-            <a class="next" onclick="nextSlide()">&#10095;</a>
+<!--             <a class="prev" onclick="prevSlide()">&#10094;</a> -->
+<!--             <a class="next" onclick="nextSlide()">&#10095;</a> -->
     
             <div class="middle_index"> </div>
         </div>
@@ -249,7 +260,7 @@
                 
                 <div class="middle_gallery">
                     <h2>갤러리</h2>
-                    <img src="image/13cli-trees-01-wpgf-videoSixteenByNine3000.jpg" alt="">
+                    <img src="4_community/Gallery_image/${GalleryImg}" alt="">
                 </div>
                 
             </div>
@@ -258,7 +269,7 @@
                 <div class="program_container">
                     <ul class="clerfix">
                         <li> 
-                            <a href="">
+                            <a href="javascript:goProgram('local')">
                             <p>
                                 <img src="index_image/로컬먹거리직구.jpg" alt="">
                             </p>
@@ -268,7 +279,7 @@
                             </div>
                         </a></li>
                         <li>
-                            <a href="">
+                            <a href="javascript:goProgram('agecny')">
                                 <p>
                                     <img src="index_image/기관숲체험.jpg" alt="">
                                 </p>
@@ -279,7 +290,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="javascript:goProgram('green')">
                                 <p>
                                     <img src="index_image/녹색사업.jpg" alt="">
                                 </p>
@@ -290,7 +301,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="javascript:goProgram('forest_heal')">
                                 <p>
                                     <img src="index_image/숲치유.jpg" alt="">
                                 </p>
@@ -301,7 +312,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="javascript:goProgram('school')">
                                 <p>
                                     <img src="index_image/학교환경교육.jpg" alt="">
                                 </p>
@@ -312,7 +323,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="javascript:goProgram('monitar')">
                                 <p>
                                     <img src="index_image/지역생태모니터링.jpg" alt="">
                                 </p>
@@ -328,17 +339,17 @@
             <div class="middle_guide_section">
                     
                     <div class="g_section2">
-                        <a href=""><img src="simple-icon/compnay.png"><p>회사소개</p></a>
+                        <a href="javascript:goCompany('company_introduce')"><img src="simple-icon/compnay.png"><p>회사소개</p></a>
                             
                         </div>
                     <div class="g_section3">
-                        <a href=""> <img src="simple-icon/program.png"><p>프로그램안내</p></a>
+                        <a href="javascript:goProgram('agecny')"> <img src="simple-icon/program.png"><p>프로그램안내</p></a>
                             </div>
                     <div class="g_section4">
-                        <a href=""> <img src="simple-icon/write.png"><p>체험신청</p></a>
+                        <a href="javascript:goApply('apply')"> <img src="simple-icon/write.png"><p>체험신청</p></a>
                             </div>
                     <div class="g_section5">
-                        <a href=""> <img src="simple-icon/qna.png"><p>공지사항</p></a>
+                        <a href="javascript:goCommunity('notice')"> <img src="simple-icon/qna.png"><p>공지사항</p></a>
                             
                         </div>
                     

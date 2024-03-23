@@ -6,6 +6,27 @@
     <script src="jsfile.js"></script>
     <link href="css/gallery.css" rel="stylesheet">
     <script src="js/header.js"></script>
+    <script>
+   		function goGalleryView(no){
+   			gallery_move.gallery_no.value=no;
+   			gallery_move.t_gubun.value="gallery_view";
+   			gallery_move.method="post";
+   			gallery_move.action="Community";
+   			gallery_move.submit();
+   		}
+   		function goSearch(){
+   			noti.method="post";
+   			noti.action="Community";
+   			noti.submit();
+   		}
+   		function goPage(pageNumber){
+   			noti.t_nowPage.value=pageNumber;
+   			noti.method="post";
+   			noti.action="Community";
+   			noti.submit();
+   		}
+   	
+   	</script>
 </head>
 <body>
     <form name="pagemove">
@@ -39,23 +60,20 @@
                         <div class="sub_info">
                             <div class="sub_title"><h3>갤러리</h3></div>
                         </div>
+                        <!--페이지 검색기능  -->
+                            <form name="noti">
+                            	<input type="hidden" name="t_nowPage">
+                            <p class="select_box select_box_right">
+								<select name="t_select" class="sel_box">
+									<option value="title" <c:if test="${select eq 'title'}">selected</c:if>>제목</option>
+									<option value="write_name" <c:if test="${select eq 'write_name'}">selected</c:if>>이름</option>
+								</select>
+								<input type="text" value="${search}" name="t_search"  class="sel_text">
+								<button type="button" onclick="goSearch()" class="sel_button"><i class="fa fa-search"></i>SEARCH</button>
+							</p>
+							</form>	
                         <div id="contents">
-                            <!-- <table style="border:1px solid #CCC;width:100%;margin-bottom:50px;">
-                                <tbody>
-                                    <tr>
-                                        <td style="width: 10%; align:center;">
-                                            <div style="width:80%; margin:0 10%;">
-                                                <img src="/picture/113945770_p53.png" style="width: 150%;">
-                                            </div>
-                                        </td>
-                                        <td style="width: 90%; padding: 20px 30px">
-                                            <p style="font-size:1.5em;font-weight:bold;color:#063;">계좌안내</p>
-                                            <span style="color:#FC0;font-size:1.1em;">농ㅋㅋ협 301-19191-차이나</span>
-                                            <span style="font-size:1em;">주식회사 님블뉴런망해라연구소</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table> -->
+                            
                             <h2 class="contents_title">
                                 갤러리
                                 <!-- <span class="sound_only"> 목록</span> -->
@@ -67,64 +85,51 @@
                                         <span>Total 315건 / 1페이지</span>
                                     </div>
                                     <ul class="btn_bo_user">
+                                    <c:if test="${sessionLevel eq 'top' }">
                                         <li><a href="javascript:goCommunity('gallery_write')" class="btn1">글쓰기</a></li>
+                                        </c:if>
                                     </ul>
                                 </div>
 
                                 <div class="tb1_wrap">
+                                <form name="gallery_move">
+                                <input type ="hidden" name="t_gubun">
+                                <input type ="hidden" name="gallery_no">
                                     <table >
                                         <ul>
+                                        	<c:forEach items="${dtos}" var="dto">
                                             <li>
-                                                <a href="">
+                                                <a href="javascript:goGalleryView('${dto.getNo()}')">
                                                     <p>
-                                                        <img src="4_community/picture/cpgja.png">
+                                                        <img src="4_community/Gallery_image/${dto.getAttach_1()}" style="width: 344px;
+    														height: 344px; object-fit: cover;">
                                                     </p>
                                                     <div>
-                                                        <h3>2023 녹색사업 갤러리</h3>
-                                                         <p>녹색사업은 지속 가능한 미래를 위한 핵심입니다.</p>
-                                                         <p style="text-align: left; float: left;">190</p>
-                                                         <p style="text-align: right;">2012-08-09</p>
+                                                        <h3></h3>
+                                                         <p>${dto.getTitle()}</p>
+                                                         <p style="text-align: left; float: left;">${dto.getHit()}</p>
+                                                         <p style="text-align: right;">${dto.getReg_date()}</p>
                                                     </div>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="">
-                                                    <p>
-                                                        <img src="4_community/picture/cpgja.png">
-                                                    </p>
-                                                    <div>
-                                                        <h3>2023 녹색사업 갤러리</h3>
-                                                         <p>녹색사업은 지속 가능한 미래를 위한 핵심입니다.</p>
-                                                         <p style="text-align: left; float: left;">조회수</p>
-                                                         <p style="text-align: right;">날짜</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <p>
-                                                        <img src="4_community/picture/cpgja.png">
-                                                    </p>
-                                                    <div>
-                                                        <h3>2023 녹색사업 갤러리</h3>
-                                                         <p>녹색사업은 지속 가능한 미래를 위한 핵심입니다.</p>
-                                                         <p style="text-align: left; float: left;">조회수</p>
-                                                         <p style="text-align: right;">날짜</p>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                            </c:forEach>
+                                           
                                         </ul>
                                         
                                         
                                     </table>
-
-                                    <div class="bo_fx">
+                                    </form>
+                                </div>
+                                <div class="bo_fx">
                                         <ul class="btn_bo_user">
+                                        <c:if test="${sessionLevel eq 'top' }">
                                             <li><a href="" class="btn1">글쓰기</a></li>
+                                            </c:if>
                                         </ul>
                                     </div>
-
-                                </div>
+									<div class="paging">
+										${displayPage}
+									</div>
                             </div>
                         </div>
                     </section>

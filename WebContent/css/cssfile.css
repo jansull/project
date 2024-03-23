@@ -12,6 +12,12 @@
     font-style: normal;
 }
 @font-face {
+    font-family: 'KimjungchulMyungjo-Light';
+    src: url('../font/ttf/KimjungchulMyungjo-Light.ttf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
     font-family: 'SOYOMapleBoldTTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
     font-weight: 700;
@@ -23,12 +29,19 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'JalnanGothicTTF';
+    src: url('font/JalnanGothicTTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 ul, ol, dl, div, dd, dt, li, p, h4, h5 {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     list-style: none;
-    font-family: 'Noto Sans', "맑은 고딕","Malgun Gothic","돋움",Dotum, sans-serif;
+    font-family: "JalnanGothicTTF";
     color: #333;
     line-height: 1.7;
     font-size: 16px;
@@ -129,7 +142,7 @@ header {
 }
 .menu_logo a img {
     width: 100%;
-    height: 80%;
+    height: 100%;
     object-fit: cover;
     /* position: relative; */
     /* z-index: 0; */
@@ -337,21 +350,21 @@ header {
     z-index: 0;
     background-size: cover;
 }
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  @-webkit-keyframes fade {
-    from {opacity: .2} 
-    to {opacity: 1}
-  }
+/* .fade { */
+/*     -webkit-animation-name: fade; */
+/*     -webkit-animation-duration: 3.5s; */
+/*     animation-name: fade; */
+/*     animation-duration: 3.5s; */
+/*   } */
+/*   @-webkit-keyframes fade { */
+/*     from {opacity: .2}  */
+/*     to {opacity: 1} */
+/*   } */
   
-  @keyframes fade {
-    from {opacity: .2} 
-    to {opacity: 1}
-  }
+/*   @keyframes fade { */
+/*     from {opacity: .2}  */
+/*     to {opacity: 1} */
+/*   } */
   /* Next & previous buttons */
 .prev, .next {
     cursor: pointer;
@@ -385,7 +398,7 @@ header {
     left: 50%;
     transform: translate(-50%, 70%);
     z-index: 0;
-    font-family: "SOYOMapleBoldTTF";
+    font-family: "JalnanGothicTTF";
     text-align: center;
     color: white;
     font-size: 30px;
@@ -521,7 +534,9 @@ section{
     border-bottom: 1px solid gray;
 }
 .middle_gallery img{ 
-    width: 100%;
+    width: 600px;
+    height: 330px;
+    object-fit: cover;
 }
 .map{
     width: 95%;

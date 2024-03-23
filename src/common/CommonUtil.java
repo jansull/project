@@ -37,7 +37,9 @@ public class CommonUtil {
 	*/
 	//자료실 정보
 		public static String getNoticeDir(HttpServletRequest request){
-			String attachDir=request.getSession().getServletContext().getRealPath("/")+"4_community\\Notice_image";
+			//String attachDir=request.getSession().getServletContext().getRealPath("/")+"4_community\\Notice_image";
+			String attachDir ="/sunja537012/tomcat/webapps/ROOT/4_community/Notice_image";
+			//String attachDir ="D:/Real_forest_homepage/Fix_HomePage/WebContent/4_community/Notice_image";
 			return attachDir;
 		}
 		public static String getNewsDir(){
@@ -53,7 +55,16 @@ public class CommonUtil {
 			String attachDir=request.getSession().getServletContext().getRealPath("/")+"attach/product";
 			return attachDir;
 		}
-		
+		public static String getGalleryDir(HttpServletRequest request){
+			String attachDir ="D:/Real_forest_homepage/Fix_HomePage/WebContent/4_community/Gallery_image";
+			//String attachDir ="/sunja537012/tomcat/webapps/ROOT/4_community/Gallery_image";
+			return attachDir;
+		}
+		public static String getLocalDir(HttpServletRequest request){
+			String attachDir ="D:/Real_forest_homepage/Fix_HomePage/WebContent/2_program/6_local/local_image";
+			//String attachDir ="/sunja537012/tomcat/webapps/ROOT/2_program/6_local/local_image";
+			return attachDir;
+		}
 	
 	
 	//오늘날짜

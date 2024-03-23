@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.NoticeVIew;
 import command.Notice_list;
 import command.Notice_write;
+import command.Gallery.GalleryList;
+import command.Gallery.GallerySave;
+import command.Gallery.GalleryView;
 import common.CommonExcute;
 import common.CommonUtil;
 import forestDao.ForestDao;
@@ -48,6 +52,8 @@ public class Community extends HttpServlet {
 			viewpage="4_community/notice.jsp";
 			request.setAttribute("t_gubunMenu", "notice");
 		}else if (gubun.equals("notice_view")) {
+			CommonExcute community = new NoticeVIew();
+			community.excute(request);
 			viewpage="4_community/notice_view.jsp";
 			request.setAttribute("t_gubunMenu", "notice");
 		}else if (gubun.equals("notice_write")) {
@@ -58,13 +64,25 @@ public class Community extends HttpServlet {
 			CommonExcute community = new Notice_write();
 			community.excute(request);
 			viewpage="common_alert.jsp";
-		}else if (gubun.equals("gallery")) {
+		}
+		//갤러리
+		else if (gubun.equals("gallery")) {
+			CommonExcute community = new GalleryList();
+			community.excute(request);
 			viewpage="4_community/gallery.jsp";
 			request.setAttribute("t_gubunMenu", "gallery");
 		}else if (gubun.equals("gallery_write")) {
 			String today = CommonUtil.getToday();
 			request.setAttribute("Today", today);
 			viewpage="4_community/gallery_write.jsp";
+		}else if (gubun.equals("gallery_save")) {
+			CommonExcute community = new GallerySave();
+			community.excute(request);
+			viewpage="common_alert_view.jsp";
+		}else if (gubun.equals("gallery_view")) {
+			CommonExcute community = new GalleryView();
+			community.excute(request);
+			viewpage="4_community/gallery_view.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewpage);

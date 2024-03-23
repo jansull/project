@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
+	<title>Insert title here</title>
     <script src="js/jquery-1.8.1.min.js"></script>
     <script src="jsfile.js"></script>
     <link href="css/compnay.css" rel="stylesheet">
@@ -36,29 +37,8 @@
             </div>
             <div id="sub_wrap">
                 <div class="wrap">
-                    <!-- 좌측 사이드바 -->
-                    <section id="side" class="side">
-                        <h2><span class="side_subject">회사소개</span></h2>
-                        <nav class="lnb">
-                            <ul>
-                                <li class="depth1">
-                                    <a href="company.html" class="active">- 회사소개</a>
-                                    
-                                </li>
-                                
-                                <li class="depth1">
-                                    <a href="company_history.html" class="">- 연혁</a>
-                                    
-                                </li>
-                                <li class="depth1">
-                                    <a href="preson.html" class="">- 조직도</a>
-                                    
-                                </li>
-                               
-                            </ul>
-                        </nav>
-                        <!-- 우측 메인컨텐츠 -->
-                    </section>
+                    <%@include file="company_sidebar.jsp" %>
+                      <!-- 우측 메인컨텐츠 -->
                     <section id="right_wp">
                         <div class="sub_info">
                             <div class="sub_title"><h3 style="font-family: 'KimjungchulMyungjo-Bold';">회사소개</h3></div>

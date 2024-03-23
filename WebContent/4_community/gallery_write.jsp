@@ -1,4 +1,4 @@
-<%@page import="common.CommonUtil"%>
+<%@page import="common.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html>
@@ -14,49 +14,16 @@
     <!-- include summernote css/js-->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
-
-    <link href="css/notice_write.css" rel="stylesheet">
+	<script type="text/javascript" src="js/community_write.js"></script>
+    <link href="css/gallery_write.css" rel="stylesheet">
     <script>
-    function NoticeSave(gubun){
-    	var fileName = notice_write.img_attach.value;
-		if(fileName != ""){ 
-			var pathFileName = fileName.lastIndexOf(".")+1;    //확장자 제외한 경로+파일명
-			var extension = (fileName.substr(pathFileName)).toLowerCase();	//확장자명
-			//파일명.확장자
-			if(extension != "jpeg" && extension != "gif" && extension != "png" && extension != "jpg"){
-				alert(extension +" 형식 파일은 업로드 안됩니다. 이미지 파일만 가능!");
-				return;
-			}		
-		}
-		
-		// 2.첨부 용량 체크	
-		var file = notice_write.img_attach;
-		var fileMaxSize  = 5; // 첨부 최대 용량 설정
-		if(file.value !=""){
-			// 사이즈체크
-			var maxSize  = 1024 * 1024 * fileMaxSize;  
-			var fileSize = 0;
-			// 브라우저 확인
-			var browser=navigator.appName;
-			// 익스플로러일 경우
-			if (browser=="Microsoft Internet Explorer"){
-				var oas = new ActiveXObject("Scripting.FileSystemObject");
-				fileSize = oas.getFile(file.value).size;
-			}else {
-			// 익스플로러가 아닐경우
-				fileSize = file.files[0].size;
-			}
 
-			if(fileSize > maxSize){
-				alert(" 첨부파일 사이즈는 "+fileMaxSize+"MB 이내로 등록 가능합니다. ");
-				return;
-			}
-		
-    	}
-    	notice_write.method="post";
-    	notice_write.action="Community?t_gubun=gallery_save";
-    	notice_write.submit();
-   }
+    function gallerySave() {
+    	gallery_write.method="post";
+    	gallery_write.action="Community?t_gubun=gallery_save"
+    	gallery_write.submit();
+        }
+
     </script>
     <script>
     $(document).ready(function() {
@@ -168,72 +135,28 @@
                             <div class="sub_title"><h3>갤러리</h3></div>
                         </div>
                         <div id="contents">
-                        <form name="notice_write" onsubmit="return false;" enctype="multipart/form-data">
+                        <form name="gallery_write"  enctype="multipart/form-data">
                             <div class="wrap0">
                              <input type="text" id="user_title" placeholder="제목을 입력해 주세요." name="title">
                         	</div>
                         <div>
-	                            		  
 										
 										
-										
-										
-										<script type="text/javascript" src="js/community_write.js"></script>
-										
-										<style>
-										.insert {
-										    padding: 20px 30px;
-										    display: block;
-										    width: 500px;
-										    margin: 5vh auto;
-										    //height: 90vh;
-										    border: 1px solid #dbdbdb;
-										    -webkit-box-sizing: border-box;
-										    -moz-box-sizing: border-box;
-										    box-sizing: border-box;
-										}
-										.insert .file-list {
-										    height: 200px;
-										    overflow: auto;
-										    border: 1px solid #989898;
-										    padding: 10px;
-										}
-										.insert .file-list .filebox p {
-										    font-size: 14px;
-										    margin-top: 10px;
-										    display: inline-block;
-										}
-										.insert .file-list .filebox .delete i {
-										    color: transparent; /* 텍스트를 투명하게 만듭니다 */
-										    margin-left: 5px;
-										    display: inline-block; /* 인라인 요소를 블록 요소로 변경합니다 */
-										    width: 16px; /* 아이콘의 너비 */
-										    height: 16px; /* 아이콘의 높이 */
-										    background-image: url("image/iconmonstr-x-mark-thin-240.png");
-										    background-size: cover; /* 이미지를 요소에 맞게 조정합니다 */
-										    content: ''; /* 가상 요소에 내용을 추가합니다 */
-										}
-										</style>
-									
-										
-									<input type="file" name="img_attach" id="input-image">
-								 	<img  id="preview-image">
                                		<textarea id="summernote" name="summer"></textarea>
                                 	<input type="date" value="${Today}" name="reg_date" style="width: 200px;">
-                                	<input type="text" value="" style="float: right;" name="user" readonly="readonly">
+                                	<input type="text" value="${sessionName}" style="float: right;" name="user" readonly="readonly">
                             		<div class="insert">
-                            		<label for="input-images">
-	  										<div class="btn-upload" >
-	  										 이미지 업로드하기
-	  										</div>
-										</label>
-									        <input type="file" onchange="addFile(this);"  style="display: none;"id="input-images" multiple />
-									        <div class="file-list"></div>이미지는 글 보다 먼저 올라갑니다.<br>이미지는 되도록이면 같은 크기의 사진으로 올려주세요.
+									    <label for="input_file">
+									        <div class="btn-upload">
+									            이미지 업로드하기
+									        </div>
+									    </label>
+									    <input type="file" onchange="addFile(this);" style="display: none;" id="input_file" name="gallery_attach1" multiple />
+									    <div class="file-list"></div>이미지는 글 보다 먼저 올라갑니다.<br>이미지는 되도록이면 같은 크기의 사진으로 올려주세요.
 									</div>
                             
                            </div>		
-                           
-                            <input type="button" onclick="NoticeSave();" value="글쓰기" class="custom-btn btn-1" style="float: right;">
+                            <input type="button" onclick="gallerySave();" value="글쓰기" class="custom-btn btn-1" style="float: right;">
                           </form>
                     </section>
                 </div>

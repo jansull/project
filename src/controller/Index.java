@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import forestDao.GalleryDao;
+
 /**
  * Servlet implementation class Index
  */
@@ -29,6 +31,10 @@ public class Index extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		GalleryDao dao =new GalleryDao();
+		
+		String GalleryImg=dao.getGalleryFirstImg();
+		request.setAttribute("GalleryImg", GalleryImg);
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	}

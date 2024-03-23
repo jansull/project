@@ -45,7 +45,7 @@
                             <div>
                             <img src="2_program/picture/main image/기관숲체험.jpg" style="width: 50%; border: rgb(178, 222, 154) solid 5px;">
                             <br>
-                                <input type="button" onclick="" value="체험신청 바로가기" class="custom-btn btn-1">
+                                <input type="button" onclick="goApply('reserve_user')" value="체험신청 바로가기" class="custom-btn btn-1">
                                 <h2>기관 숲체험 프로그램</h2>
                                 <p style="font-family: 'KimjungchulMyungjo-Light';">일상의에서 벗어나 푸르른 자연 속에서 새로운 경험을 즐겨보세요. <br> 
                                     도시의 소음과 스트레스에서 벗어나 푸른 숲의 풍요로운 에너지를 만끽할 수 있는 체험입니다.</p>

@@ -6,7 +6,29 @@
     <script src="jsfile.js"></script>
     <link href="css/apply.css" rel="stylesheet">
    	<script src="js/header.js"></script>
+   	<script>
+   		function goNoticeView(no){
+   			notice_move.notice_no.value=no;
+   			notice_move.t_gubun.value="notice_view";
+   			notice_move.method="post";
+   			notice_move.action="Community";
+   			notice_move.submit();
+   		}
+   		function goSearch(){
+   			noti.method="post";
+   			noti.action="Community";
+   			noti.submit();
+   		}
+   		function goPage(pageNumber){
+   			noti.t_nowPage.value=pageNumber;
+   			noti.method="post";
+   			noti.action="Community";
+   			noti.submit();
+   		}
+   	
+   	</script>
 </head>
+
 <body>
 <form name="pagemove">
 	<input type="hidden" name="t_gubun">
@@ -41,38 +63,39 @@
                             <div class="sub_title"><h3 style="font-family: 'KimjungchulMyungjo-Bold';">공지사항</h3></div>
                         </div>
                         <div id="contents">
-                            <!-- <table style="border:1px solid #CCC;width:100%;margin-bottom:50px;">
-                                <tbody>
-                                    <tr>
-                                        <td style="width: 10%; align:center;">
-                                            <div style="width:80%; margin:0 10%;">
-                                                <img src="/picture/113945770_p53.png" style="width: 150%;">
-                                            </div>
-                                        </td>
-                                        <td style="width: 90%; padding: 20px 30px">
-                                            <p style="font-size:1.5em;font-weight:bold;color:#063;">계좌안내</p>
-                                            <span style="color:#FC0;font-size:1.1em;">농ㅋㅋ협 301-19191-차이나</span>
-                                            <span style="font-size:1em;">주식회사 님블뉴런망해라연구소</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table> -->
+                            <!--페이지 검색기능  -->
+                            <form name="noti">
+                            	<input type="hidden" name="t_nowPage">
+                            <p class="select_box select_box_right">
+								<select name="t_select" class="sel_box">
+									<option value="title" <c:if test="${select eq 'title'}">selected</c:if>>제목</option>
+									<option value="write_name" <c:if test="${select eq 'write_name'}">selected</c:if>>이름</option>
+								</select>
+								<input type="text" value="${search}" name="t_search"  class="sel_text">
+								<button type="button" onclick="goSearch()" class="sel_button"><i class="fa fa-search"></i>SEARCH</button>
+							</p>
+							</form>	
                             <h2 class="contents_title">
-                                공지사항
+                                		공지사항
                                 <!-- <span class="sound_only"> 목록</span> -->
                             </h2>
                             <!-- bo = board -->
                             <div class="bo_list">
                                 <div class="bo_fx">
                                     <div class="bo_list_total">
-                                        <span>Total 315건 / 1페이지</span>
+                                        <span>Total ${total_Count}건 / 1페이지</span>
                                     </div>
                                     <ul class="btn_bo_user">
+                                    <c:if test="${sessionLevel eq 'top' }">
                                         <li><a href="javascript:goCommunity('notice_write')" class="btn1">글쓰기</a></li>
+                                    </c:if>
                                     </ul>
                                 </div>
 
                                 <div class="tb1_wrap">
+                                <form name="notice_move">
+                                <input type ="hidden" name="t_gubun">
+                                <input type ="hidden" name="notice_no">
                                     <table>
                                         <caption>목록</caption>
                                         <thead></thead>
@@ -98,28 +121,32 @@
                                         </tbody>
     									<c:forEach items="${dtos}" var="dto">
                                         <tbody>
-                                            <tr class>
+                                            <tr class="apply_notice">
                                                 <td class="td_num">${dto.getNo()}</td>
                                                 <td class="td_subject">
-                                                    <a href="javascript:goCommunity('notice_view')">${dto.getTitle()}</a>
+                                                    <a href="javascript:goNoticeView('${dto.getNo()}')">${dto.getTitle()}</a>
                                                 </td>
                                                 <td class="center">
-                                                    <span>${dto.getUser()}</span>
+                                                    <span>${dto.getAdmin()}</span>
                                                 </td>
-                                                <td>hit</td>
+                                                <td>${dto.getHit()}</td>
                                                 <td class="td_date">${dto.getReg_date()}</td>
                                                
                                             </tr>
                                         </tbody>
 											</c:forEach>
                                     </table>
-
+								</form>
                                     <div class="bo_fx">
                                         <ul class="btn_bo_user">
-                                            <li><a href="" class="btn1">글쓰기</a></li>
+                                        	<c:if test="${sessionLevel eq 'top' }">
+                                            <li><a href="javascript:goCommunity('notice_write')" class="btn1">글쓰기</a></li>
+                                            </c:if>
                                         </ul>
                                     </div>
-
+									<div class="paging">
+										${displayPage}
+									</div>
                                 </div>
                             </div>
                         </div>

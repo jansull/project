@@ -139,7 +139,7 @@ header {
 }
 .menu_logo a img {
     width: 100%;
-    height: 80%;
+    height: 100%;
     object-fit: cover;
     /* position: relative; */
     /* z-index: 0; */
@@ -302,6 +302,7 @@ header {
     left: 50%;
     transform: translate(-50%, 120%);
     z-index: 0;
+    font-family: "KimjungchulMyungjo-Bold";
     text-align: center;
     color: white;
     font-size: 30px;

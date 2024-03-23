@@ -11,14 +11,14 @@ public class DBConnection {
 		 
 		Connection con = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			System.out.println("mysql 드라이버 없음");
 			e.printStackTrace();
 		}
-		String db_address="jdbc:mariadb://sunja537012.cafe24.com/sunja537012?serverTimezone=UTC";//나중에 수정해야함
-		String db_user 	 = "sunja537012";
-		String db_password = "gkftndlTek";
+		String db_address="jdbc:mysql://175.125.20.45:3306/forest";//나중에 수정해야함
+		String db_user 	 = "forest";
+		String db_password = "wlrndls100";
 		
 		try {
 			con = DriverManager.getConnection(db_address, db_user, db_password);
